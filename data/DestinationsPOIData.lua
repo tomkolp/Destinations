@@ -147,6 +147,14 @@ local CRAFTINGSET_NEW_MOON_ACOLYTE = 51
 local CRAFTINGSET_DARING_CORSAIR = 52
 local CRAFTINGSET_ANCIENT_DRAGONGUARD = 53
 
+--[[ New code overrides this as if it was not a proper
+rebase on master by another contributor
+
+local CRAFTINGSET_DAUNTLESS_COMBATANT = 54
+local CRAFTINGSET_CRITICAL_RIPOSTE = 55
+local CRAFTINGSET_UNCHAINED_AGGRESSOR = 56
+]]--
+
 local CRAFTINGSET_DRAGONS_APPETITE = 54
 local CRAFTINGSET_STUHNS_FAVOR = 55
 
@@ -236,6 +244,17 @@ Destinations.SetsStore = {
     -- Dragonhold
     [CRAFTINGSET_NEW_MOON_ACOLYTE] = {156159, 9},
     [CRAFTINGSET_DARING_CORSAIR] = {155410, 3},
+--[[ New code overrides this as if it was not a proper
+rebase on master by another contributor
+
+    [CRAFTINGSET_ANCIENT_DRAGONGUARD] = {155780, 999},
+
+    --Update 25 Cyrodiil
+    [CRAFTINGSET_DAUNTLESS_COMBATANT]                       = { 159107, 3 },
+    [CRAFTINGSET_CRITICAL_RIPOSTE]                      = { 158316, 3 },
+    [CRAFTINGSET_UNCHAINED_AGGRESSOR]                           = { 158698, 3 },
+]]--
+
     [CRAFTINGSET_ANCIENT_DRAGONGUARD] = {155780, 6},
 
     -- Western Skyrim
