@@ -1321,7 +1321,7 @@ Destinations.ChampionTableStore =	{
 
     ["Zthenganaz_base_0"] = {
         {0.8934,	0.3325,	1302,	1},
-    },	
+    },
 	-- Greymoor
     ["chillwinddepths_base_0"] = {
        { 0.4416, 0.1946, 2639, 1}, -- Frozen Coast
