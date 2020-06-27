@@ -1742,7 +1742,7 @@ Destinations.POIsStore = {
         [63] = { n = "Twin Arches", t = DESTINATIONS_PIN_TYPE_HOUSING},
         [64] = { n = "Dungeon: Fang Lair", t = DESTINATIONS_PIN_TYPE_GROUPINSTANCE},
         [65] = { n = "Unhallowed Grave", t = DESTINATIONS_PIN_TYPE_GROUPINSTANCE},
-        [66] = { n = "Thieves’ Oasis", t = DESTINATIONS_PIN_TYPE_HOUSING},
+        [66] = { n = "Thieves' Oasis", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Bangkorai",
     },
     [381]       = --Auridon
