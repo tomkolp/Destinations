@@ -6,6 +6,7 @@ local ADDON_VERSION = "26.0"
 local ADDON_WEBSITE = "http://www.esoui.com/downloads/info667-Destinations.html"
 
 local LMP = LibMapPins
+local LQD = LibQuestData
 
 local isQuestCompleted = true
 local mapTextureName, zoneTextureName, mapData
@@ -1327,35 +1328,46 @@ local ZoneToAchievements = {
 }
 --------- ZoneId to mapTile name conversion ---------
 local ZoneIDsToFileNames = {
-    [104] = "alikr_base_0",
     [381] = "auridon_base_0",
-    [281] = "balfoyen_base_0",
-    [92] = "bangkorai_base_0",
-    [535] = "betnihk_base_0",
-    [280] = "bleakrock_base_0",
-    [347] = "coldharbour_base_0",
-    [888] = "craglorn_base_0",
-    [181] = "ava_whole_0",
-    [57] = "deshaan_base_0",
-    [101] = "eastmarch_base_0",
-    [3] = "glenumbra_base_0",
-    [823] = "goldcoast_base_0",
     [383] = "grahtwood_base_0",
     [108] = "greenshade_base_0",
-    [816] = "hewsbane_base_0",
     [537] = "khenarthisroost_base_0",
     [58] = "malabaltor_base_0",
     [382] = "reapersmarch_base_0",
-    [20] = "rivenspire_base_0",
+    [281] = "balfoyen_base_0",
+    [280] = "bleakrock_base_0",
+    [57] = "deshaan_base_0",
+    [101] = "eastmarch_base_0",
     [117] = "shadowfen_base_0",
     [41] = "stonefalls_base_0",
+    [103] = "therift_base_0",
+    [104] = "alikr_base_0",
+    [92] = "bangkorai_base_0",
+    [535] = "betnihk_base_0",
+    [3] = "glenumbra_base_0",
+    [20] = "rivenspire_base_0",
     [19] = "stormhaven_base_0",
     [534] = "strosmkai_base_0",
-    [103] = "therift_base_0",
-    [684] = "wrothgar_base_0",
-    [849] = "vvardenfell_base_0",
-    [1011] = "summerset_base_0",
     [1027] = "artaeum_base_0",
+    [1161] = "blackreach_base_0",
+    [980] = "clockwork_base_0",
+    [981] = "brassfortress_base_0",
+    [982] = "clockworkoutlawsrefuge_base_0",
+    [347] = "coldharbour_base_0",
+    [888] = "craglorn_base_0",
+    [823] = "goldcoast_base_0",
+    [816] = "hewsbane_base_0",
+    [726] = "murkmire_base_0",
+    [1072] = "swampisland_ext_base_0",
+    [1086] = "elsweyr_base_0",
+    [1133] = "southernelsweyr_base_0",
+    [1011] = "summerset_base_0",
+    [849] = "vvardenfell_base_0",
+    [1160] = "westernskryim_base_0",
+    [684] = "wrothgar_base_0",
+    [181] = "ava_whole_0",
+    [584] = "imperialcity_base_0",
+    [267] = "eyevea_base_0",
 }
 
 local achTypes = {
@@ -1397,9 +1409,9 @@ local function ShowMyPosition()
     local locX = ("%0.04f"):format(zo_round(x*10000)/10000)
     local locY = ("%0.04f"):format(zo_round(y*10000)/10000)
 
-    local mapname = GetMapTileTexture():lower()
+    local mapname = LMP:GetZoneAndSubzone(true, true, true)
 
-    d(zo_strformat('["<<1>>"] = { ' .. '{<<2>>, <<3>>,  xx, yyyy,   1,  "X"}, --3.1.3   > AssemblerManiac', mapname, locX, locY))
+    d(zo_strformat('["<<1>>"] = <<2>>, <<3>>', mapname, locX, locY))
 
 end
 
@@ -1418,50 +1430,26 @@ local function GetAchTypeName(TYPE)
     return achTypes[TYPE] or achTypes[55]
 end
 
+--[[ Various map names
+    Reference https://wiki.esoui.com/Texture_List/ESO/art/maps
+
+   "/art/maps/southernelsweyr/els_dragonguard_island05_base_8.dds",
+   "/art/maps/murkmire/tsofeercavern01_1.dds",
+   "/art/maps/housing/blackreachcrypts.base_0.dds",
+   "/art/maps/housing/blackreachcrypts.base_1.dds",
+   "Art/maps/skyrim/blackreach_base_0.dds",
+   "Textures/maps/summerset/alinor_base.dds",
+   "art/maps/murkmire/ui_map_tsofeercavern01_0.dds",
+   "art/maps/elsweyr/jodesembrace1.base_0.dds",
+]]--
 local function GetMapTextureName()
-
-    local tileTexture = GetMapTileTexture()
-    local stringEnd = string.sub(tileTexture,-6)
-    local number = ""
-    local nameNoNum = ""
-    local path = ""
-    local counter = 1
-    local rNumber = 0
-
-    for word in string.gmatch(tileTexture, "[%w_%-]+") do
-        if counter == 1 then path = "/" .. word end
-        if counter == 2 then path = tostring(path .. "/" .. word) end
-        if counter == 3 then path = tostring(path .. "/" .. word) end
-        if counter == 4 then mapTextureName = word end
-        counter = counter + 1
-    end
-
-    if string.gmatch(stringEnd, "%d+") ~= nil then
-        for mapNum in string.gmatch(stringEnd, "%d+") do
-            number = mapNum
-        end
-    end
-
-    if number == nil then
-        number = ""
-    else
-        rNumber = tonumber(number)
-    end
-
-    if number == "" then
-        nameNoNum = tostring(mapTextureName)
-    elseif rNumber < 10 then
-        local onedigit = string.sub(mapTextureName, 1,-2)
-        nameNoNum = onedigit
-    elseif rNumber > 9 then
-        local twodigit = string.sub(mapTextureName, 1,-3)
-        nameNoNum = twodigit
-    end
-
     zoneTextureName = ZoneIDsToFileNames[GetZoneId(GetCurrentMapZoneIndex())]
+    _, mapTextureName = LMP:GetZoneAndSubzone(false, true, true)
+    if not zoneTextureName then
+        zoneTextureName = mapTextureName
+    end
 
     return mapTextureName, zoneTextureName
-
 end
 
 ------------------- MAP PINS -------------------
@@ -2816,7 +2804,7 @@ local function sharedQuestPinData()
     mapData, mapTextureName, zoneTextureName = nil, nil, nil
     if LMP:IsEnabled(drtv.pinName) and DestinationsCSSV.filters[drtv.pinName] then
         GetMapTextureName()
-        mapData = QuestsStore[mapTextureName]
+        mapData = LQD:get_quest_list(LMP:GetZoneAndSubzone(true, false, true))
     end
 end
 local function AvailableQuestPinTint(pin)
@@ -2849,26 +2837,31 @@ local function Quests_Undone_pinTypeCallback(pinManager)
     sharedQuestPinData()
     if not mapData then return end
     for _, pinData in ipairs(mapData) do
-        local QuestID = pinData[QuestsIndex.QUESTID]
+        local QuestID = pinData[LQD.quest_map_pin_index.quest_id]
         if not QuestID then return end
         local dataName = GetCompletedQuestInfo(QuestID)
-        local QuestName = QTableStore[QuestID]
+        local QuestName = LQD:get_quest_name(QuestID)
         if not QuestName then QuestName = "<<->>" end
-        local Name = zo_strformat(QuestName[1])
-        local questLine = pinData[QuestsIndex.QUESTLINE]
-        local questNumber = pinData[QuestsIndex.QUESTNUMBER]
-        local questSeries = pinData[QuestsIndex.QUESTSERIES]
-        local NPCID = pinData[QuestsIndex.QUESTNPC]
-        local NPCName, NPC = nil, nil
-        if QGiverStore[NPCID] then
-            NPCName = QGiverStore[NPCID]
-            NPC = zo_strformat(NPCName[1])
+        local Name = zo_strformat(QuestName)
+        local questLine = LQD:get_quest_line(QuestID)
+        local questNumber = LQD:get_quest_number(QuestID)
+        local questSeries = LQD:get_quest_series(QuestID)
+        if LQD.completed_quests[QuestID] then
+            isQuestCompleted = false
         else
-            d("Missing NPC: "..tostring(NPCID))
-            NPC = "Missing NPC: "..tostring(NPCID)
+            isQuestCompleted = true
         end
-        isQuestCompleted = true
+        local NPCID = LQD:get_quest_npc_id(pinData)
+        local NPCName, NPC = nil, nil
+        if NPCID ~= -1 then
+            NPCName = LQD:get_quest_giver(NPCID)
+            NPC = zo_strformat(NPCName)
+        else
+            --d("Missing NPC: "..tostring(NPCID))
+            NPC = "Missing NPC"
+        end
         QuestPinFilters(QuestID, dataName, questLine, questSeries)
+        --[[
         if questLine >= 10002 and questNumber ~= 10001 then
             if GetMapContentType() == MAP_CONTENT_DUNGEON or GetMapType() == MAPTYPE_SUBZONE then
                 zoneTextureName = ZoneIDsToFileNames[GetZoneId(GetCurrentMapZoneIndex())]
@@ -2888,11 +2881,12 @@ local function Quests_Undone_pinTypeCallback(pinManager)
                 end
             end
         end
+        ]]--
         if dataName ~= Name and DestinationsCSSV.QuestsDone[QuestID] ~= 2 and DestinationsCSSV.QuestsDone[QuestID] ~= 1 and DestinationsCSSV.QuestsDone[QuestID] ~= 5 and isQuestCompleted then
             drtv.pinTag = {ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsUndone.textcolor)):Colorize(zo_strformat("<<1>>", Name))}
             table.insert(drtv.pinTag, 2, ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsUndone.textcolor)):Colorize("["..zo_strformat("<<C:1>>", NPC).."]"))
-            local Rep = pinData[QuestsIndex.QUESTREPEAT]
-            local Type = pinData[QuestsIndex.QUESTTYPE]
+            local Rep = LQD:get_quest_repeat(QuestID)
+            local Type = LQD:get_quest_type(QuestID)
             local tintIndex, skipRep = 0, false
             LMP:SetLayoutKey(drtv.pinName, "tint", AvailableQuestPinTint)
             if Type then
@@ -2939,23 +2933,23 @@ local function Quests_Undone_pinTypeCallback(pinManager)
                 drtv.pinTag.IsAvailableQuest = true
                 drtv.pinTag.tintIndex = tintIndex
                 if not DestinationsSV.settings.ShowCadwellsAlmanac then
-                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[QuestsIndex.QUEST_X], pinData[QuestsIndex.QUEST_Y])
+                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[LQD.quest_map_pin_index.local_x], pinData[LQD.quest_map_pin_index.local_y])
                 elseif DestinationsSV.settings.ShowCadwellsAlmanac and not DestinationsSV.settings.ShowCadwellsAlmanacOnly then
-                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[QuestsIndex.QUEST_X], pinData[QuestsIndex.QUEST_Y])
-                    if pinData[QuestsIndex.QUESTSERIES] == 1 then
+                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[LQD.quest_map_pin_index.local_x], pinData[LQD.quest_map_pin_index.local_y])
+                    if LQD:get_quest_series(QuestID) == 1 then
                         drtv.pinTag = {ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsUndone.textcolor)):Colorize("<"..zo_strformat("<<C:1>>", "Cadwell's Almanac")..">")}
                         LMP:SetLayoutKey(drtv.pinName, "level", DestinationsSV.pins.pinTextureQuestsUndone.level + 1)
                         LMP:SetLayoutKey(drtv.pinName, "texture", pinTextures.paths.Quests[7])
-                        LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[QuestsIndex.QUEST_X], pinData[QuestsIndex.QUEST_Y])
+                        LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[LQD.quest_map_pin_index.local_x], pinData[LQD.quest_map_pin_index.local_y])
                         LMP:SetLayoutKey(drtv.pinName, "texture", pinTextures.paths.Quests[DestinationsSV.pins.pinTextureQuestsUndone.type])
                         LMP:SetLayoutKey(drtv.pinName, "level", DestinationsSV.pins.pinTextureQuestsUndone.level - 1)
                     end
-                elseif DestinationsSV.settings.ShowCadwellsAlmanac and DestinationsSV.settings.ShowCadwellsAlmanacOnly and pinData[QuestsIndex.QUESTSERIES] == 1 then
-                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[QuestsIndex.QUEST_X], pinData[QuestsIndex.QUEST_Y])
+                elseif DestinationsSV.settings.ShowCadwellsAlmanac and DestinationsSV.settings.ShowCadwellsAlmanacOnly and LQD:get_quest_series(QuestID) == 1 then
+                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[LQD.quest_map_pin_index.local_x], pinData[LQD.quest_map_pin_index.local_y])
                     drtv.pinTag = {ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsUndone.textcolor)):Colorize("<"..zo_strformat("<<C:1>>", "Cadwell's Almanac")..">")}
                     LMP:SetLayoutKey(drtv.pinName, "level", DestinationsSV.pins.pinTextureQuestsUndone.level + 1)
                     LMP:SetLayoutKey(drtv.pinName, "texture", pinTextures.paths.Quests[7])
-                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[QuestsIndex.QUEST_X], pinData[QuestsIndex.QUEST_Y])
+                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[LQD.quest_map_pin_index.local_x], pinData[LQD.quest_map_pin_index.local_y])
                     LMP:SetLayoutKey(drtv.pinName, "texture", pinTextures.paths.Quests[DestinationsSV.pins.pinTextureQuestsUndone.type])
                     LMP:SetLayoutKey(drtv.pinName, "level", DestinationsSV.pins.pinTextureQuestsUndone.level - 1)
                 end
@@ -2969,30 +2963,30 @@ local function Quests_In_Progress_pinTypeCallback(pinManager)
     sharedQuestPinData()
     if not mapData then return end
     for _, pinData in ipairs(mapData) do
-        local QuestID = pinData[QuestsIndex.QUESTID]
+        local QuestID = pinData[LQD.quest_map_pin_index.quest_id]
         if not QuestID then return end
         isQuestCompleted = true
         local dataName = GetCompletedQuestInfo(QuestID)
-        local questLine = pinData[QuestsIndex.QUESTLINE]
-        local questSeries = pinData[QuestsIndex.QUESTSERIES]
+        local questLine = LQD:get_quest_line(QuestID)
+        local questSeries = LQD:get_quest_series(QuestID)
         QuestPinFilters(QuestID, dataName, questLine, questSeries)
         if DestinationsCSSV.QuestsDone[QuestID] and DestinationsCSSV.QuestsDone[QuestID] == 2 and isQuestCompleted then
-            local QuestName = QTableStore[QuestID]
+            local QuestName = LQD:get_quest_name(QuestID)
             if not QuestName then QuestName = "<<->>" end
-            local Name = zo_strformat(QuestName[1])
-            local NPCID = pinData[QuestsIndex.QUESTNPC]
+            local Name = zo_strformat(QuestName)
+            local NPCID = LQD:get_quest_npc_id(pinData)
             local NPCName, NPC = nil, nil
-            if QGiverStore[NPCID] then
-                NPCName = QGiverStore[NPCID]
-                NPC = zo_strformat(NPCName[1])
+            if NPCID ~= -1 then
+                NPCName = LQD:get_quest_giver(NPCID)
+                NPC = zo_strformat(NPCName)
             else
-                d("Missing NPC: "..tostring(NPCID))
-                NPC = "Missing NPC: "..tostring(NPCID)
+                --d("Missing NPC: "..tostring(NPCID))
+                NPC = "Missing NPC"
             end
             drtv.pinTag = {ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsInProgress.textcolor)):Colorize(zo_strformat("<<1>>", Name))}
             table.insert(drtv.pinTag, 2, ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsInProgress.textcolor)):Colorize("["..zo_strformat("<<C:1>>", NPC).."]"))
-            local Rep = pinData[QuestsIndex.QUESTREPEAT]
-            local Type = pinData[QuestsIndex.QUESTTYPE]
+            local Rep = LQD:get_quest_repeat(QuestID)
+            local Type = LQD:get_quest_type(QuestID)
             local skipRep = false
             if Type then
                 local QType = nil
@@ -3033,23 +3027,23 @@ local function Quests_In_Progress_pinTypeCallback(pinManager)
             if skipRep == false then
                 drtv.pinTag.InProgressQuest = true
                 if not DestinationsSV.settings.ShowCadwellsAlmanac then
-                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[QuestsIndex.QUEST_X], pinData[QuestsIndex.QUEST_Y])
+                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[LQD.quest_map_pin_index.local_x], pinData[LQD.quest_map_pin_index.local_y])
                 elseif DestinationsSV.settings.ShowCadwellsAlmanac and not DestinationsSV.settings.ShowCadwellsAlmanacOnly then
-                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[QuestsIndex.QUEST_X], pinData[QuestsIndex.QUEST_Y])
-                    if pinData[QuestsIndex.QUESTSERIES] == 1 then
+                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[LQD.quest_map_pin_index.local_x], pinData[LQD.quest_map_pin_index.local_y])
+                    if questSeries == 1 then
                         drtv.pinTag = {ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsInProgress.textcolor)):Colorize("<"..zo_strformat("<<C:1>>", "Cadwell's Almanac")..">")}
                         LMP:SetLayoutKey(drtv.pinName, "level", DestinationsSV.pins.pinTextureQuestsInProgress.level + 1)
                         LMP:SetLayoutKey(drtv.pinName, "texture", pinTextures.paths.Quests[7])
-                        LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[QuestsIndex.QUEST_X], pinData[QuestsIndex.QUEST_Y])
+                        LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[LQD.quest_map_pin_index.local_x], pinData[LQD.quest_map_pin_index.local_y])
                         LMP:SetLayoutKey(drtv.pinName, "texture", pinTextures.paths.Quests[DestinationsSV.pins.pinTextureQuestsInProgress.type])
                         LMP:SetLayoutKey(drtv.pinName, "level", DestinationsSV.pins.pinTextureQuestsInProgress.level - 1)
                     end
                 elseif DestinationsSV.settings.ShowCadwellsAlmanac and DestinationsSV.settings.ShowCadwellsAlmanacOnly and pinData[QuestsIndex.QUESTSERIES] == 1 then
-                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[QuestsIndex.QUEST_X], pinData[QuestsIndex.QUEST_Y])
+                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[LQD.quest_map_pin_index.local_x], pinData[LQD.quest_map_pin_index.local_y])
                     drtv.pinTag = {ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsInProgress.textcolor)):Colorize("<"..zo_strformat("<<C:1>>", "Cadwell's Almanac")..">")}
                     LMP:SetLayoutKey(drtv.pinName, "level", DestinationsSV.pins.pinTextureQuestsInProgress.level + 1)
                     LMP:SetLayoutKey(drtv.pinName, "texture", pinTextures.paths.Quests[7])
-                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[QuestsIndex.QUEST_X], pinData[QuestsIndex.QUEST_Y])
+                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[LQD.quest_map_pin_index.local_x], pinData[LQD.quest_map_pin_index.local_y])
                     LMP:SetLayoutKey(drtv.pinName, "texture", pinTextures.paths.Quests[DestinationsSV.pins.pinTextureQuestsInProgress.type])
                     LMP:SetLayoutKey(drtv.pinName, "level", DestinationsSV.pins.pinTextureQuestsInProgress.level - 1)
                 end
@@ -3063,31 +3057,34 @@ local function Quests_Done_pinTypeCallback(pinManager)
     sharedQuestPinData()
     if not mapData then return end
     for _, pinData in ipairs(mapData) do
-        local QuestID = pinData[QuestsIndex.QUESTID]
+        local QuestID = pinData[LQD.quest_map_pin_index.quest_id]
         if not QuestID then return end
         local dataName = GetCompletedQuestInfo(QuestID)
-        local QuestName = QTableStore[QuestID]
+        local QuestName = LQD:get_quest_name(QuestID)
         if not QuestName then QuestName = "<<->>" end
-        local Name = zo_strformat(QuestName[1])
-        isQuestCompleted = true
-        local dataName = GetCompletedQuestInfo(QuestID)
-        local questLine = pinData[QuestsIndex.QUESTLINE]
-        local questSeries = pinData[QuestsIndex.QUESTSERIES]
-        local NPCID = pinData[QuestsIndex.QUESTNPC]
-        local NPCName, NPC = nil, nil
-        if QGiverStore[NPCID] then
-            NPCName = QGiverStore[NPCID]
-            NPC = zo_strformat(NPCName[1])
+        local Name = zo_strformat(QuestName)
+        if LQD.completed_quests[QuestID] then
+            isQuestCompleted = true
         else
-            d("Missing NPC: "..tostring(NPCID))
-            NPC = "Missing NPC: "..tostring(NPCID)
+            isQuestCompleted = false
+        end
+        local questLine = LQD:get_quest_line(QuestID)
+        local questSeries = LQD:get_quest_series(QuestID)
+        local NPCID = LQD:get_quest_npc_id(pinData)
+        local NPCName, NPC = nil, nil
+        if NPCID ~= -1 then
+            NPCName = LQD:get_quest_giver(NPCID)
+            NPC = zo_strformat(NPCName)
+        else
+            --d("Missing NPC: "..tostring(NPCID))
+            NPC = "Missing NPC"
         end
         QuestPinFilters(QuestID, dataName, questLine, questSeries)
         if (dataName == Name and DestinationsCSSV.QuestsDone[QuestID] ~= 5 and isQuestCompleted) or (DestinationsCSSV.QuestsDone[QuestID] == 1 and isQuestCompleted) then
             drtv.pinTag = {ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsDone.textcolor)):Colorize(zo_strformat("<<1>>", Name))}
             table.insert(drtv.pinTag, 2, ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsDone.textcolor)):Colorize("["..zo_strformat("<<C:1>>", NPC).."]"))
-            local Rep = pinData[QuestsIndex.QUESTREPEAT]
-            local Type = pinData[QuestsIndex.QUESTTYPE]
+            local Rep = LQD:get_quest_repeat(QuestID)
+            local Type = LQD:get_quest_type(QuestID)
             local skipRep = false
             if Type ~= 0 then
                 local QType = nil
@@ -3127,25 +3124,25 @@ local function Quests_Done_pinTypeCallback(pinManager)
             end
             if skipRep == false then
                 if not DestinationsSV.settings.ShowCadwellsAlmanac then
-                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[QuestsIndex.QUEST_X], pinData[QuestsIndex.QUEST_Y])
+                    LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[LQD.quest_map_pin_index.local_x], pinData[LQD.quest_map_pin_index.local_y])
                 elseif DestinationsSV.settings.ShowCadwellsAlmanac then
                     if not DestinationsSV.settings.ShowCadwellsAlmanacOnly then
-                        LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[QuestsIndex.QUEST_X], pinData[QuestsIndex.QUEST_Y])
-                        if pinData[QuestsIndex.QUESTSERIES] == 1 then
+                        LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[LQD.quest_map_pin_index.local_x], pinData[LQD.quest_map_pin_index.local_y])
+                        if questSeries == 1 then
                             drtv.pinTag = {ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsDone.textcolor)):Colorize("<"..zo_strformat("<<C:1>>", "Cadwell's Almanac")..">")}
                             LMP:SetLayoutKey(drtv.pinName, "level", DestinationsSV.pins.pinTextureQuestsDone.level + 1)
                             LMP:SetLayoutKey(drtv.pinName, "texture", pinTextures.paths.Quests[7])
-                            LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[QuestsIndex.QUEST_X], pinData[QuestsIndex.QUEST_Y])
+                            LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[LQD.quest_map_pin_index.local_x], pinData[LQD.quest_map_pin_index.local_y])
                             LMP:SetLayoutKey(drtv.pinName, "texture", pinTextures.paths.Quests[DestinationsSV.pins.pinTextureQuestsDone.type])
                             LMP:SetLayoutKey(drtv.pinName, "level", DestinationsSV.pins.pinTextureQuestsDone.level - 1)
                         end
                     elseif DestinationsSV.settings.ShowCadwellsAlmanacOnly then
-                        if pinData[QuestsIndex.QUESTSERIES] == 1 then
-                            LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[QuestsIndex.QUEST_X], pinData[QuestsIndex.QUEST_Y])
+                        if questSeries == 1 then
+                            LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[LQD.quest_map_pin_index.local_x], pinData[LQD.quest_map_pin_index.local_y])
                             drtv.pinTag = {ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsDone.textcolor)):Colorize("<"..zo_strformat("<<C:1>>", "Cadwell's Almanac")..">")}
                             LMP:SetLayoutKey(drtv.pinName, "level", DestinationsSV.pins.pinTextureQuestsDone.level + 1)
                             LMP:SetLayoutKey(drtv.pinName, "texture", pinTextures.paths.Quests[7])
-                            LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[QuestsIndex.QUEST_X], pinData[QuestsIndex.QUEST_Y])
+                            LMP:CreatePin(drtv.pinName, drtv.pinTag, pinData[LQD.quest_map_pin_index.local_x], pinData[LQD.quest_map_pin_index.local_y])
                             LMP:SetLayoutKey(drtv.pinName, "texture", pinTextures.paths.Quests[DestinationsSV.pins.pinTextureQuestsDone.type])
                             LMP:SetLayoutKey(drtv.pinName, "level", DestinationsSV.pins.pinTextureQuestsDone.level - 1)
                         end
@@ -3571,7 +3568,7 @@ local function GetDestinationKnownPOITexture(poiTypeId)
         [DESTINATIONS_PIN_TYPE_WAYSHRINE]               = "/esoui/art/icons/poi/poi_wayshrine_complete.dds",
         [DESTINATIONS_PIN_TYPE_GUILDKIOSK]              = "/esoui/art/icons/servicemappins/servicepin_guildkiosk.dds",
         [DESTINATIONS_PIN_TYPE_PLANARARMORSCRAPS]       = "/esoui/art/icons/poi/poi_ic_planararmorscraps_complete.dds",
-        [DESTINATIONS_PIN_TYPE_TINYCLAW]                    = "/esoui/art/icons/poi/poi_ic_tinyclaw_complete.dds",
+        [DESTINATIONS_PIN_TYPE_TINYCLAW]                = "/esoui/art/icons/poi/poi_ic_tinyclaw_complete.dds",
         [DESTINATIONS_PIN_TYPE_MONSTROUSTEETH]          = "/esoui/art/icons/poi/poi_ic_monstrousteeth_complete.dds",
         [DESTINATIONS_PIN_TYPE_BONESHARD]               = "/esoui/art/icons/poi/poi_ic_boneshard_complete.dds",
         [DESTINATIONS_PIN_TYPE_MARKLEGION]              = "/esoui/art/icons/poi/poi_ic_marklegion_complete.dds",
