@@ -2,7 +2,7 @@
 
 local ADDON_NAME = "Destinations"
 local ADDON_AUTHOR = "|c990000Snowman|r|cFFFFFFDK|r & MasterLenman & Ayantir"
-local ADDON_VERSION = "26.0"
+local ADDON_VERSION = "27.0"
 local ADDON_WEBSITE = "http://www.esoui.com/downloads/info667-Destinations.html"
 
 local LMP = LibMapPins
@@ -1946,8 +1946,7 @@ end
 ------------------Achievements------------------
 local function ChampionpinTypeCallback()
     if GetMapType() >= MAPTYPE_WORLD then return end
-    -- TODO: New zones starting with murkmire have zoneTextureName == nil. Find a better way to handle this.
-    if (zoneTextureName == mapTextureName or mapTextureName == "murkmire_base_0" or mapTextureName == "elsweyr_base_0" or mapTextureName == "southernelsweyr_base_0") and DestinationsSV.settings.ShowDungeonBossesInZones == false then return end
+    if (zoneTextureName == mapTextureName) and DestinationsSV.settings.ShowDungeonBossesInZones == false then return end
     drtv.pinName = DPINS.CHAMPION
     if LMP:IsEnabled(drtv.pinName) then
         GetMapTextureName()
@@ -1969,7 +1968,7 @@ end
 local function ChampionpinTypeCallbackDone()
     if GetMapType() >= MAPTYPE_WORLD then return end
     -- TODO: New zones starting with murkmire have zoneTextureName == nil. Find a better way to handle this.
-    if (zoneTextureName == mapTextureName or mapTextureName == "murkmire_base_0" or mapTextureName == "elsweyr_base_0" or mapTextureName == "southernelsweyr_base_0") and DestinationsSV.settings.ShowDungeonBossesInZones == false then return end
+    if (zoneTextureName == mapTextureName) and DestinationsSV.settings.ShowDungeonBossesInZones == false then return end
     drtv.pinName = DPINS.CHAMPION_DONE
     if LMP:IsEnabled(drtv.pinName) then
         GetMapTextureName()
