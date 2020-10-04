@@ -11,125 +11,125 @@ Each subentry should be regenerated at each POI addition
 
 Destinations = Destinations or {}
 
-local DESTINATIONS_PIN_TYPE_AOI						= 1
-local DESTINATIONS_PIN_TYPE_AYLEIDRUIN				= 2
-local DESTINATIONS_PIN_TYPE_BATTLEFIELD			= 3
-local DESTINATIONS_PIN_TYPE_CAMP						= 4
-local DESTINATIONS_PIN_TYPE_CAVE						= 5
-local DESTINATIONS_PIN_TYPE_CEMETERY				= 6
-local DESTINATIONS_PIN_TYPE_CITY						= 7
-local DESTINATIONS_PIN_TYPE_CRAFTING				= 8
-local DESTINATIONS_PIN_TYPE_CRYPT					= 9
-local DESTINATIONS_PIN_TYPE_DAEDRICRUIN			= 10
-local DESTINATIONS_PIN_TYPE_DELVE					= 11
-local DESTINATIONS_PIN_TYPE_DOCK						= 12
-local DESTINATIONS_PIN_TYPE_DUNGEON					= 13
-local DESTINATIONS_PIN_TYPE_DWEMERRUIN				= 14
-local DESTINATIONS_PIN_TYPE_ESTATE					= 15
-local DESTINATIONS_PIN_TYPE_FARM						= 16
-local DESTINATIONS_PIN_TYPE_GATE						= 17
-local DESTINATIONS_PIN_TYPE_GROUPBOSS				= 18
-local DESTINATIONS_PIN_TYPE_GROUPDELVE				= 19
-local DESTINATIONS_PIN_TYPE_GROUPINSTANCE			= 20
-local DESTINATIONS_PIN_TYPE_GROVE					= 21
-local DESTINATIONS_PIN_TYPE_KEEP						= 22
-local DESTINATIONS_PIN_TYPE_LIGHTHOUSE				= 23
-local DESTINATIONS_PIN_TYPE_MINE						= 24
-local DESTINATIONS_PIN_TYPE_MUNDUS					= 25
-local DESTINATIONS_PIN_TYPE_PORTAL					= 26
-local DESTINATIONS_PIN_TYPE_RAIDDUNGEON			= 27
-local DESTINATIONS_PIN_TYPE_RUIN						= 28
-local DESTINATIONS_PIN_TYPE_SEWER					= 29
-local DESTINATIONS_PIN_TYPE_SOLOTRIAL				= 30
-local DESTINATIONS_PIN_TYPE_TOWER					= 31
-local DESTINATIONS_PIN_TYPE_TOWN						= 32
-local DESTINATIONS_PIN_TYPE_WAYSHRINE				= 33
-local DESTINATIONS_PIN_TYPE_GUILDKIOSK				= 34
-local DESTINATIONS_PIN_TYPE_PLANARARMORSCRAPS	= 35
-local DESTINATIONS_PIN_TYPE_TINYCLAW				= 36
-local DESTINATIONS_PIN_TYPE_MONSTROUSTEETH		= 37
-local DESTINATIONS_PIN_TYPE_BONESHARD				= 38
-local DESTINATIONS_PIN_TYPE_MARKLEGION				= 39
-local DESTINATIONS_PIN_TYPE_DARKETHER				= 40
-local DESTINATIONS_PIN_TYPE_DARKBROTHERHOOD		= 41
-local DESTINATIONS_PIN_TYPE_GROUPLIGHTHOUSE		= 42
-local DESTINATIONS_PIN_TYPE_GROUPESTATE			= 43
-local DESTINATIONS_PIN_TYPE_GROUPRUIN				= 44
-local DESTINATIONS_PIN_TYPE_GROUPCAVE				= 45
-local DESTINATIONS_PIN_TYPE_GROUPCEMETERY			= 46
-local DESTINATIONS_PIN_TYPE_GROUPKEEP				= 47
+local DESTINATIONS_PIN_TYPE_AOI                     = 1
+local DESTINATIONS_PIN_TYPE_AYLEIDRUIN              = 2
+local DESTINATIONS_PIN_TYPE_BATTLEFIELD         = 3
+local DESTINATIONS_PIN_TYPE_CAMP                        = 4
+local DESTINATIONS_PIN_TYPE_CAVE                        = 5
+local DESTINATIONS_PIN_TYPE_CEMETERY                = 6
+local DESTINATIONS_PIN_TYPE_CITY                        = 7
+local DESTINATIONS_PIN_TYPE_CRAFTING                = 8
+local DESTINATIONS_PIN_TYPE_CRYPT                   = 9
+local DESTINATIONS_PIN_TYPE_DAEDRICRUIN         = 10
+local DESTINATIONS_PIN_TYPE_DELVE                   = 11
+local DESTINATIONS_PIN_TYPE_DOCK                        = 12
+local DESTINATIONS_PIN_TYPE_DUNGEON                 = 13
+local DESTINATIONS_PIN_TYPE_DWEMERRUIN              = 14
+local DESTINATIONS_PIN_TYPE_ESTATE                  = 15
+local DESTINATIONS_PIN_TYPE_FARM                        = 16
+local DESTINATIONS_PIN_TYPE_GATE                        = 17
+local DESTINATIONS_PIN_TYPE_GROUPBOSS               = 18
+local DESTINATIONS_PIN_TYPE_GROUPDELVE              = 19
+local DESTINATIONS_PIN_TYPE_GROUPINSTANCE           = 20
+local DESTINATIONS_PIN_TYPE_GROVE                   = 21
+local DESTINATIONS_PIN_TYPE_KEEP                        = 22
+local DESTINATIONS_PIN_TYPE_LIGHTHOUSE              = 23
+local DESTINATIONS_PIN_TYPE_MINE                        = 24
+local DESTINATIONS_PIN_TYPE_MUNDUS                  = 25
+local DESTINATIONS_PIN_TYPE_PORTAL                  = 26
+local DESTINATIONS_PIN_TYPE_RAIDDUNGEON         = 27
+local DESTINATIONS_PIN_TYPE_RUIN                        = 28
+local DESTINATIONS_PIN_TYPE_SEWER                   = 29
+local DESTINATIONS_PIN_TYPE_SOLOTRIAL               = 30
+local DESTINATIONS_PIN_TYPE_TOWER                   = 31
+local DESTINATIONS_PIN_TYPE_TOWN                        = 32
+local DESTINATIONS_PIN_TYPE_WAYSHRINE               = 33
+local DESTINATIONS_PIN_TYPE_GUILDKIOSK              = 34
+local DESTINATIONS_PIN_TYPE_PLANARARMORSCRAPS   = 35
+local DESTINATIONS_PIN_TYPE_TINYCLAW                = 36
+local DESTINATIONS_PIN_TYPE_MONSTROUSTEETH      = 37
+local DESTINATIONS_PIN_TYPE_BONESHARD               = 38
+local DESTINATIONS_PIN_TYPE_MARKLEGION              = 39
+local DESTINATIONS_PIN_TYPE_DARKETHER               = 40
+local DESTINATIONS_PIN_TYPE_DARKBROTHERHOOD     = 41
+local DESTINATIONS_PIN_TYPE_GROUPLIGHTHOUSE     = 42
+local DESTINATIONS_PIN_TYPE_GROUPESTATE         = 43
+local DESTINATIONS_PIN_TYPE_GROUPRUIN               = 44
+local DESTINATIONS_PIN_TYPE_GROUPCAVE               = 45
+local DESTINATIONS_PIN_TYPE_GROUPCEMETERY           = 46
+local DESTINATIONS_PIN_TYPE_GROUPKEEP               = 47
 local DESTINATIONS_PIN_TYPE_GROUPAREAOFINTEREST = 48
 local DESTINATIONS_PIN_TYPE_HOUSING = 49
 local DESTINATIONS_PIN_TYPE_DWEMERGEAR = 50
 local DESTINATIONS_PIN_TYPE_NORDBOAT = 51
-local DESTINATIONS_PIN_TYPE_UNKNOWN					= 99
+local DESTINATIONS_PIN_TYPE_UNKNOWN                 = 99
 
 -- value is abilityId
-local MUNDUS_STONE_WARRIOR								= 13940 -- Boon: The Warrior
-local MUNDUS_STONE_MAGE									= 13943 -- Boon: The Mage
-local MUNDUS_STONE_SERPENT								= 13974 -- Boon: The Serpent
-local MUNDUS_STONE_THIEF								= 13975 -- Boon: The Thief
-local MUNDUS_STONE_LADY									= 13976 -- Boon: The Lady
-local MUNDUS_STONE_STEED								= 13977 -- Boon: The Steed
-local MUNDUS_STONE_LORD									= 13978 -- Boon: The Lord
-local MUNDUS_STONE_APPRENTICE							= 13979 -- Boon: The Apprentice
-local MUNDUS_STONE_RITUAL								= 13980 -- Boon: The Ritual
-local MUNDUS_STONE_LOVER								= 13981 -- Boon: The Lover
-local MUNDUS_STONE_ATRONACH							= 13982 -- Boon: The Atronach
-local MUNDUS_STONE_SHADOW								= 13984 -- Boon: The Shadow
-local MUNDUS_STONE_TOWER								= 13985 -- Boon: The Tower
+local MUNDUS_STONE_WARRIOR                              = 13940 -- Boon: The Warrior
+local MUNDUS_STONE_MAGE                                 = 13943 -- Boon: The Mage
+local MUNDUS_STONE_SERPENT                              = 13974 -- Boon: The Serpent
+local MUNDUS_STONE_THIEF                                = 13975 -- Boon: The Thief
+local MUNDUS_STONE_LADY                                 = 13976 -- Boon: The Lady
+local MUNDUS_STONE_STEED                                = 13977 -- Boon: The Steed
+local MUNDUS_STONE_LORD                                 = 13978 -- Boon: The Lord
+local MUNDUS_STONE_APPRENTICE                           = 13979 -- Boon: The Apprentice
+local MUNDUS_STONE_RITUAL                               = 13980 -- Boon: The Ritual
+local MUNDUS_STONE_LOVER                                = 13981 -- Boon: The Lover
+local MUNDUS_STONE_ATRONACH                         = 13982 -- Boon: The Atronach
+local MUNDUS_STONE_SHADOW                               = 13984 -- Boon: The Shadow
+local MUNDUS_STONE_TOWER                                = 13985 -- Boon: The Tower
 
-local CRAFTINGSET_ASHEN_GRIP							= 1
-local CRAFTINGSET_DEATHS_WIND							= 2
-local CRAFTINGSET_NIGHTS_SILENCE						= 3
-local CRAFTINGSET_TORUGS_PACT							= 4
-local CRAFTINGSET_TWILIGHTS_EMBRACE					= 5
-local CRAFTINGSET_ARMOR_OF_THE_SEDUCER				= 6
-local CRAFTINGSET_MAGNUS_GIFT							= 7
-local CRAFTINGSET_HIST_BARK							= 8
-local CRAFTINGSET_WHITESTRAKES_RETRIBUTION		= 9
-local CRAFTINGSET_VAMPIRES_KISS						= 10
-local CRAFTINGSET_SONG_OF_LAMAE						= 11
-local CRAFTINGSET_ALESSIAS_BULWARK					= 12
-local CRAFTINGSET_NIGHT_MOTHERS_GAZE				= 13
-local CRAFTINGSET_WILLOWS_PATH						= 14
-local CRAFTINGSET_HUNDINGS_RAGE						= 15
+local CRAFTINGSET_ASHEN_GRIP                            = 1
+local CRAFTINGSET_DEATHS_WIND                           = 2
+local CRAFTINGSET_NIGHTS_SILENCE                        = 3
+local CRAFTINGSET_TORUGS_PACT                           = 4
+local CRAFTINGSET_TWILIGHTS_EMBRACE                 = 5
+local CRAFTINGSET_ARMOR_OF_THE_SEDUCER              = 6
+local CRAFTINGSET_MAGNUS_GIFT                           = 7
+local CRAFTINGSET_HIST_BARK                         = 8
+local CRAFTINGSET_WHITESTRAKES_RETRIBUTION      = 9
+local CRAFTINGSET_VAMPIRES_KISS                     = 10
+local CRAFTINGSET_SONG_OF_LAMAE                     = 11
+local CRAFTINGSET_ALESSIAS_BULWARK                  = 12
+local CRAFTINGSET_NIGHT_MOTHERS_GAZE                = 13
+local CRAFTINGSET_WILLOWS_PATH                      = 14
+local CRAFTINGSET_HUNDINGS_RAGE                     = 15
 
-local CRAFTINGSET_OBLIVIONS_FOE						= 16
-local CRAFTINGSET_SPECTRES_EYE						= 17
+local CRAFTINGSET_OBLIVIONS_FOE                     = 16
+local CRAFTINGSET_SPECTRES_EYE                      = 17
 
-local CRAFTINGSET_KAGRENACS_HOPE						= 18
-local CRAFTINGSET_ORGNUMS_SCALES						= 19
+local CRAFTINGSET_KAGRENACS_HOPE                        = 18
+local CRAFTINGSET_ORGNUMS_SCALES                        = 19
 
-local CRAFTINGSET_EYES_OF_MARA						= 20
-local CRAFTINGSET_SHALIDORS_CURSE					= 21
+local CRAFTINGSET_EYES_OF_MARA                      = 20
+local CRAFTINGSET_SHALIDORS_CURSE                   = 21
 
-local CRAFTINGSET_WAY_OF_THE_ARENA					= 22
-local CRAFTINGSET_TWICE_BORN_STAR					= 23
+local CRAFTINGSET_WAY_OF_THE_ARENA                  = 22
+local CRAFTINGSET_TWICE_BORN_STAR                   = 23
 
-local CRAFTINGSET_REDISTRIBUTOR						= 24
-local CRAFTINGSET_NOBLES_CONQUEST					= 25
-local CRAFTINGSET_ARMOR_MASTER						= 26
+local CRAFTINGSET_REDISTRIBUTOR                     = 24
+local CRAFTINGSET_NOBLES_CONQUEST                   = 25
+local CRAFTINGSET_ARMOR_MASTER                      = 26
 
-local CRAFTINGSET_LAW_OF_JULIANOS					= 27
-local CRAFTINGSET_TRIAL_BY_FIRE						= 28
-local CRAFTINGSET_MORKULDIN							= 29
+local CRAFTINGSET_LAW_OF_JULIANOS                   = 27
+local CRAFTINGSET_TRIAL_BY_FIRE                     = 28
+local CRAFTINGSET_MORKULDIN                         = 29
 
-local CRAFTINGSET_TAVAS_FAVOR							= 30
-local CRAFTINGSET_CLEVER_ALCHEMIST					= 31
-local CRAFTINGSET_ETERNAL_HUNT						= 32
+local CRAFTINGSET_TAVAS_FAVOR                           = 30
+local CRAFTINGSET_CLEVER_ALCHEMIST                  = 31
+local CRAFTINGSET_ETERNAL_HUNT                      = 32
 
-local CRAFTINGSET_KVATCH_GLADIATOR					= 33
-local CRAFTINGSET_VARENS_LEGACY						= 34
-local CRAFTINGSET_PELINALS_APTITUDE					= 35
+local CRAFTINGSET_KVATCH_GLADIATOR                  = 33
+local CRAFTINGSET_VARENS_LEGACY                     = 34
+local CRAFTINGSET_PELINALS_APTITUDE                 = 35
 
-local CRAFTINGSET_SHACKLEBREAKER						= 36
-local CRAFTINGSET_DAEDRIC_TRICKERY					= 37
-local CRAFTINGSET_ASSASSIN_GUILE						= 38
+local CRAFTINGSET_SHACKLEBREAKER                        = 36
+local CRAFTINGSET_DAEDRIC_TRICKERY                  = 37
+local CRAFTINGSET_ASSASSIN_GUILE                        = 38
 
-local CRAFTINGSET_INNATE_AXIOM						= 39
-local CRAFTINGSET_FORTIFIED_BRASS					= 40
-local CRAFTINGSET_MECHANICAL_ACUITY						= 41
+local CRAFTINGSET_INNATE_AXIOM                      = 39
+local CRAFTINGSET_FORTIFIED_BRASS                   = 40
+local CRAFTINGSET_MECHANICAL_ACUITY                     = 41
 
 local CRAFTINGSET_ADEPT_RIDER = 42
 local CRAFTINGSET_SLOADS_SEMBLANCE = 43
@@ -156,94 +156,94 @@ local CRAFTINGSET_SPELL_PARASITE = 56
 Destinations.SetsStore = {
 
     -- Base
-    [CRAFTINGSET_ASHEN_GRIP]			 				= { 43871, 2 },
-    [CRAFTINGSET_DEATHS_WIND]			 				= { 43803, 2 },
-    [CRAFTINGSET_NIGHTS_SILENCE]		 				= { 43815, 2 },
+    [CRAFTINGSET_ASHEN_GRIP]                            = { 43871, 2 },
+    [CRAFTINGSET_DEATHS_WIND]                           = { 43803, 2 },
+    [CRAFTINGSET_NIGHTS_SILENCE]                        = { 43815, 2 },
 
-    [CRAFTINGSET_TORUGS_PACT]			 				= { 43977, 3 },
-    [CRAFTINGSET_TWILIGHTS_EMBRACE]	 				= { 43807, 3 },
-    [CRAFTINGSET_ARMOR_OF_THE_SEDUCER]				= { 43827, 3 },
+    [CRAFTINGSET_TORUGS_PACT]                           = { 43977, 3 },
+    [CRAFTINGSET_TWILIGHTS_EMBRACE]                 = { 43807, 3 },
+    [CRAFTINGSET_ARMOR_OF_THE_SEDUCER]              = { 43827, 3 },
 
-    [CRAFTINGSET_MAGNUS_GIFT]			 				= { 43847, 4 },
-    [CRAFTINGSET_HIST_BARK]				 				= { 43995, 4 },
-    [CRAFTINGSET_WHITESTRAKES_RETRIBUTION]			= { 43819, 4 },
+    [CRAFTINGSET_MAGNUS_GIFT]                           = { 43847, 4 },
+    [CRAFTINGSET_HIST_BARK]                             = { 43995, 4 },
+    [CRAFTINGSET_WHITESTRAKES_RETRIBUTION]          = { 43819, 4 },
 
-    [CRAFTINGSET_VAMPIRES_KISS]						= { 43831, 5 },
-    [CRAFTINGSET_SONG_OF_LAMAE]						= { 44013, 5 },
-    [CRAFTINGSET_ALESSIAS_BULWARK]					= { 44019, 5 },
+    [CRAFTINGSET_VAMPIRES_KISS]                     = { 43831, 5 },
+    [CRAFTINGSET_SONG_OF_LAMAE]                     = { 44013, 5 },
+    [CRAFTINGSET_ALESSIAS_BULWARK]                  = { 44019, 5 },
 
-    [CRAFTINGSET_NIGHT_MOTHERS_GAZE]					= { 43859, 6 },
-    [CRAFTINGSET_WILLOWS_PATH]							= { 44001, 6 },
-    [CRAFTINGSET_HUNDINGS_RAGE]						= { 44007, 6 },
+    [CRAFTINGSET_NIGHT_MOTHERS_GAZE]                    = { 43859, 6 },
+    [CRAFTINGSET_WILLOWS_PATH]                          = { 44001, 6 },
+    [CRAFTINGSET_HUNDINGS_RAGE]                     = { 44007, 6 },
 
-    [CRAFTINGSET_OBLIVIONS_FOE]						= { 43965, 8 },
-    [CRAFTINGSET_SPECTRES_EYE]							= { 43971, 8 },
+    [CRAFTINGSET_OBLIVIONS_FOE]                     = { 43965, 8 },
+    [CRAFTINGSET_SPECTRES_EYE]                          = { 43971, 8 },
 
-    [CRAFTINGSET_KAGRENACS_HOPE]						= { 44079, 8 },
-    [CRAFTINGSET_ORGNUMS_SCALES]						= { 44031, 8 },
+    [CRAFTINGSET_KAGRENACS_HOPE]                        = { 44079, 8 },
+    [CRAFTINGSET_ORGNUMS_SCALES]                        = { 44031, 8 },
 
-    [CRAFTINGSET_EYES_OF_MARA]							= { 44049, 8 },
-    [CRAFTINGSET_SHALIDORS_CURSE]						= { 40259, 8 },
+    [CRAFTINGSET_EYES_OF_MARA]                          = { 44049, 8 },
+    [CRAFTINGSET_SHALIDORS_CURSE]                       = { 40259, 8 },
 
-    [CRAFTINGSET_WAY_OF_THE_ARENA]					= { 54787, 8 },
-    [CRAFTINGSET_TWICE_BORN_STAR]						= { 58153, 9 },
+    [CRAFTINGSET_WAY_OF_THE_ARENA]                  = { 54787, 8 },
+    [CRAFTINGSET_TWICE_BORN_STAR]                       = { 58153, 9 },
 
     --IC
-    [CRAFTINGSET_REDISTRIBUTOR]						= { 60618, 7 },
-    [CRAFTINGSET_NOBLES_CONQUEST]						= { 60280, 5 },
-    [CRAFTINGSET_ARMOR_MASTER]							= { 60973, 9 },
+    [CRAFTINGSET_REDISTRIBUTOR]                     = { 60618, 7 },
+    [CRAFTINGSET_NOBLES_CONQUEST]                       = { 60280, 5 },
+    [CRAFTINGSET_ARMOR_MASTER]                          = { 60973, 9 },
 
     --Orsinium
-    [CRAFTINGSET_LAW_OF_JULIANOS]						= { 69606, 6 },
-    [CRAFTINGSET_TRIAL_BY_FIRE]						= { 69949, 3 },
-    [CRAFTINGSET_MORKULDIN]								= { 70642, 9 },
+    [CRAFTINGSET_LAW_OF_JULIANOS]                       = { 69606, 6 },
+    [CRAFTINGSET_TRIAL_BY_FIRE]                     = { 69949, 3 },
+    [CRAFTINGSET_MORKULDIN]                             = { 70642, 9 },
 
     --TG
-    [CRAFTINGSET_TAVAS_FAVOR]							= { 71795, 5 },
-    [CRAFTINGSET_CLEVER_ALCHEMIST]					= { 72145, 7 },
-    [CRAFTINGSET_ETERNAL_HUNT]							= { 72502, 9 },
+    [CRAFTINGSET_TAVAS_FAVOR]                           = { 71795, 5 },
+    [CRAFTINGSET_CLEVER_ALCHEMIST]                  = { 72145, 7 },
+    [CRAFTINGSET_ETERNAL_HUNT]                          = { 72502, 9 },
 
     --DB
-    [CRAFTINGSET_KVATCH_GLADIATOR]					 = { 75397, 5 },
-    [CRAFTINGSET_VARENS_LEGACY]						 = { 75747, 7 },
-    [CRAFTINGSET_PELINALS_APTITUDE]					 = { 76120, 9 },
+    [CRAFTINGSET_KVATCH_GLADIATOR]                   = { 75397, 5 },
+    [CRAFTINGSET_VARENS_LEGACY]                      = { 75747, 7 },
+    [CRAFTINGSET_PELINALS_APTITUDE]                  = { 76120, 9 },
 
     --Morrowind
-    [CRAFTINGSET_SHACKLEBREAKER]						 = { 122251, 6 },
-    [CRAFTINGSET_DAEDRIC_TRICKERY]					 = { 121921, 8 },
-    [CRAFTINGSET_ASSASSIN_GUILE]						 = { 121551, 3 },
+    [CRAFTINGSET_SHACKLEBREAKER]                         = { 122251, 6 },
+    [CRAFTINGSET_DAEDRIC_TRICKERY]                   = { 121921, 8 },
+    [CRAFTINGSET_ASSASSIN_GUILE]                         = { 121551, 3 },
 
     --Clockwork City
-    [CRAFTINGSET_INNATE_AXIOM]						= {130379, 2},
-    [CRAFTINGSET_FORTIFIED_BRASS]					= {130723, 4},
-    [CRAFTINGSET_MECHANICAL_ACUITY]					= {131070, 6},
+    [CRAFTINGSET_INNATE_AXIOM]                      = {130379, 2},
+    [CRAFTINGSET_FORTIFIED_BRASS]                   = {130723, 4},
+    [CRAFTINGSET_MECHANICAL_ACUITY]                 = {131070, 6},
 
     --Summerset
-    [CRAFTINGSET_ADEPT_RIDER]						= {135717, 3},
-    [CRAFTINGSET_SLOADS_SEMBLANCE]					= {136102, 6},
-    [CRAFTINGSET_NOCTURNALS_FAVOR]					= {136417, 9},
+    [CRAFTINGSET_ADEPT_RIDER]                       = {135717, 3},
+    [CRAFTINGSET_SLOADS_SEMBLANCE]                  = {136102, 6},
+    [CRAFTINGSET_NOCTURNALS_FAVOR]                  = {136417, 9},
 
     --Murkmire
-    [CRAFTINGSET_NAGA_SHAMAN]					    = {143161, 2},
-    [CRAFTINGSET_MIGHT_LOST_LEGION]					= {143531, 4},
-    [CRAFTINGSET_GRAVESTAKE_COLLECTOR]				= {142791, 7},
+    [CRAFTINGSET_NAGA_SHAMAN]                       = {143161, 2},
+    [CRAFTINGSET_MIGHT_LOST_LEGION]                 = {143531, 4},
+    [CRAFTINGSET_GRAVESTAKE_COLLECTOR]              = {142791, 7},
 
     --Elsweyr
-    [CRAFTINGSET_VASTARIES_TUTELAGE]					= {148688, 3},
-    [CRAFTINGSET_SENCHERAHTS_GRIT]					    = {148318, 5},
-    [CRAFTINGSET_COLDHARBOURS_FAVORITE]				= {147948, 8},
+    [CRAFTINGSET_VASTARIES_TUTELAGE]                    = {148688, 3},
+    [CRAFTINGSET_SENCHERAHTS_GRIT]                      = {148318, 5},
+    [CRAFTINGSET_COLDHARBOURS_FAVORITE]             = {147948, 8},
 
-	-- Dragonhold
-	[CRAFTINGSET_NEW_MOON_ACOLYTE] = {156159, 9},
-	[CRAFTINGSET_DARING_CORSAIR] = {155410, 3},
-	[CRAFTINGSET_ANCIENT_DRAGONGUARD] = {155780, 6},
-	
-	-- Western Skyrim
-	[CRAFTINGSET_DRAGONS_APPETITE] = {161630, 7},
-	[CRAFTINGSET_STUHNS_FAVOR] = {161232, 5},
-	
-	-- Blackreach
-	[CRAFTINGSET_SPELL_PARASITE] = { 163076, 3},
+    -- Dragonhold
+    [CRAFTINGSET_NEW_MOON_ACOLYTE] = {156159, 9},
+    [CRAFTINGSET_DARING_CORSAIR] = {155410, 3},
+    [CRAFTINGSET_ANCIENT_DRAGONGUARD] = {155780, 6},
+
+    -- Western Skyrim
+    [CRAFTINGSET_DRAGONS_APPETITE] = {161630, 7},
+    [CRAFTINGSET_STUHNS_FAVOR] = {161232, 5},
+
+    -- Blackreach
+    [CRAFTINGSET_SPELL_PARASITE] = { 163076, 3},
 }
 
 Destinations.KeepsStore = {
@@ -360,7 +360,7 @@ Destinations.KeepsStore = {
 }
 
 Destinations.POIsStore = {
-    [3]		= --Glenumbra
+    [3]     = --Glenumbra
     {
         [1] = { n = "Red Rook Camp", t = DESTINATIONS_PIN_TYPE_CAMP},
         [2] = { n = "Hag Fen", t = DESTINATIONS_PIN_TYPE_GROVE},
@@ -434,7 +434,7 @@ Destinations.POIsStore = {
         [70] = {n = "Exorcised Coven Cottage", t=DESTINATIONS_PIN_TYPE_HOUSING },
         ["zoneName"] = "Glenumbra",
     },
-    [101]		= --Eastmarch
+    [101]       = --Eastmarch
     {
         [1] = { n = "Thulvald's Logging Camp", t = DESTINATIONS_PIN_TYPE_CAMP},
         [2] = { n = "The Thief", t = DESTINATIONS_PIN_TYPE_MUNDUS, s = MUNDUS_STONE_THIEF},
@@ -499,7 +499,7 @@ Destinations.POIsStore = {
         [61] = { n = "Frostvault Chasm", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Eastmarch",
     },
-    [103]		= --The Rift
+    [103]       = --The Rift
     {
         [1] = { n = "Shor's Stone", t = DESTINATIONS_PIN_TYPE_TOWN},
         [2] = { n = "Vernim Woods", t = DESTINATIONS_PIN_TYPE_GROVE},
@@ -566,7 +566,7 @@ Destinations.POIsStore = {
         [63] = { n = "Hunter's Glade", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "The Rift",
     },
-    [104]		= --Alik'r Desert
+    [104]       = --Alik'r Desert
     {
         [1] = { n = "Sentinel Docks", t = DESTINATIONS_PIN_TYPE_DOCK},
         [2] = { n = "Ancestor's Landing", t = DESTINATIONS_PIN_TYPE_RUIN},
@@ -633,7 +633,7 @@ Destinations.POIsStore = {
         [63] = { n = "House of the Silent Magnifico", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Alik'r Desert",
     },
-    [41]		= --Stonefalls
+    [41]        = --Stonefalls
     {
         [1] = { n = "Fort Arand", t = DESTINATIONS_PIN_TYPE_TOWER},
         [2] = { n = "Vivec's Antlers", t = DESTINATIONS_PIN_TYPE_BATTLEFIELD},
@@ -706,7 +706,7 @@ Destinations.POIsStore = {
         [69] = { n = "Ebonheart Chateau", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Stonefalls",
     },
-    [684]		= --Wrothgar
+    [684]       = --Wrothgar
     {
         [1] = { n = "Paragon's Remembrance", t = DESTINATIONS_PIN_TYPE_RUIN},
         [2] = { n = "Old Orsinium", t = DESTINATIONS_PIN_TYPE_DUNGEON},
@@ -770,7 +770,7 @@ Destinations.POIsStore = {
         [60] = { n = "Forgemaster Falls", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Wrothgar",
     },
-    [888]		= --Craglorn
+    [888]       = --Craglorn
     {
         [1] = { n = "Belkarth", t = DESTINATIONS_PIN_TYPE_TOWN},
         [2] = { n = "Bangkorai Gate", t = DESTINATIONS_PIN_TYPE_AOI},
@@ -851,7 +851,7 @@ Destinations.POIsStore = {
         [77] = { n = "Elinhir Private Arena", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Craglorn",
     },
-    [108]		= --Greenshade
+    [108]       = --Greenshade
     {
         [1] = { n = "Rulanyil's Fall", t = DESTINATIONS_PIN_TYPE_DUNGEON},
         [2] = { n = "Bramblebreach", t = DESTINATIONS_PIN_TYPE_GROVE},
@@ -916,7 +916,7 @@ Destinations.POIsStore = {
         [61] = { n = "Dungeon: March of Sacrifices", t = DESTINATIONS_PIN_TYPE_GROUPINSTANCE},
         ["zoneName"] = "Greenshade",
     },
-    [537]		= --Khenrati's Roost
+    [537]       = --Khenrati's Roost
     {
         [1] = { n = "Eagle's Strand", t = DESTINATIONS_PIN_TYPE_CAMP},
         [2] = { n = "Temple of the Mourning Springs", t = DESTINATIONS_PIN_TYPE_RUIN},
@@ -937,7 +937,7 @@ Destinations.POIsStore = {
         [17] = { n = "Moonmirth House", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Khenarthi's Roost",
     },
-    [117]		= --Shadowfen
+    [117]       = --Shadowfen
     {
         [1] = { n = "Alten Corimont", t = DESTINATIONS_PIN_TYPE_DOCK},
         [2] = { n = "Stormhold", t = DESTINATIONS_PIN_TYPE_CITY},
@@ -1005,7 +1005,7 @@ Destinations.POIsStore = {
         [64] = { n = "The Ample Domicile", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Shadowfen",
     },
-    [584]		= --Imperial City
+    [584]       = --Imperial City
     {
         [1] = { n = "", t = DESTINATIONS_PIN_TYPE_UNKNOWN},
         [2] = { n = "", t = DESTINATIONS_PIN_TYPE_UNKNOWN},
@@ -1046,7 +1046,7 @@ Destinations.POIsStore = {
         [37] = { n = "Monstrous Tooth Trophy Vault", t = DESTINATIONS_PIN_TYPE_MONSTROUSTEETH},
         ["zoneName"] = "Imperial City",
     },
-    [643]		= -- Imperial Sewers
+    [643]       = -- Imperial Sewers
     {
         [1] = { n = "", t = DESTINATIONS_PIN_TYPE_UNKNOWN},
         [2] = { n = "", t = DESTINATIONS_PIN_TYPE_UNKNOWN},
@@ -1102,7 +1102,7 @@ Destinations.POIsStore = {
         [52] = { n = "Dungeon: White-Gold Tower", t = DESTINATIONS_PIN_TYPE_GROUPINSTANCE},
         ["zoneName"] = "Imperial Sewers",
     },
-    [816]		= --Hew's Bane
+    [816]       = --Hew's Bane
     {
         [1] = { n = "Shark's Teeth Grotto", t = DESTINATIONS_PIN_TYPE_DELVE},
         [2] = { n = "Bahraha's Gloom", t = DESTINATIONS_PIN_TYPE_DELVE},
@@ -1131,7 +1131,7 @@ Destinations.POIsStore = {
         [25] = { n = "Princely Dawnlight Palace", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Hew's Bane",
     },
-    [281]		= --Bal Foyen
+    [281]       = --Bal Foyen
     {
         [1] = { n = "Dhalmora", t = DESTINATIONS_PIN_TYPE_TOWN},
         [2] = { n = "Dhalmora Wayshrine", t = DESTINATIONS_PIN_TYPE_WAYSHRINE},
@@ -1144,7 +1144,7 @@ Destinations.POIsStore = {
         [9] = { n = "Humblemud", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Bal Foyen",
     },
-    [823]		= --Goald Coast
+    [823]       = --Goald Coast
     {
         [1] = { n = "Anvil Wayshrine", t = DESTINATIONS_PIN_TYPE_WAYSHRINE},
         [2] = { n = "Kvatch Wayshrine", t = DESTINATIONS_PIN_TYPE_WAYSHRINE},
@@ -1173,7 +1173,7 @@ Destinations.POIsStore = {
         [25] = { n = "Dungeon: Depths of Malatar", t = DESTINATIONS_PIN_TYPE_GROUPINSTANCE},
         ["zoneName"] = "The Gold Coast",
     },
-    [19]		= --Stormhaven
+    [19]        = --Stormhaven
     {
         [1] = { n = "Aphren's Hold", t = DESTINATIONS_PIN_TYPE_CRYPT},
         [2] = { n = "Shinji's Scarp", t = DESTINATIONS_PIN_TYPE_TOWN},
@@ -1243,7 +1243,7 @@ Destinations.POIsStore = {
         [66] = { n = "Dungeon: Scalecaller Peak", t = DESTINATIONS_PIN_TYPE_GROUPINSTANCE},
         ["zoneName"] = "Stormhaven",
     },
-    [20]		= --Rivenspire
+    [20]        = --Rivenspire
     {
         [1] = { n = "Hinault Farm", t = DESTINATIONS_PIN_TYPE_FARM},
         [2] = { n = "Moira's Hope", t = DESTINATIONS_PIN_TYPE_TOWN},
@@ -1307,7 +1307,7 @@ Destinations.POIsStore = {
         [60] = { n = "Wraithhome", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Rivenspire",
     },
-    [181]		= --Cyrodiil
+    [181]       = --Cyrodiil
     {
         [1] = { n = "Sardavar Leed", t = DESTINATIONS_PIN_TYPE_AYLEIDRUIN},
         [2] = { n = "Gray Viper Outpost", t = DESTINATIONS_PIN_TYPE_CAMP},
@@ -1420,7 +1420,7 @@ Destinations.POIsStore = {
         [109] = { n = "Bruma Armory", t = DESTINATIONS_PIN_TYPE_CRAFTING, s = CRAFTINGSET_UNCHAINED_AGGRESSOR},
         ["zoneName"] = "Cyrodiil",
     },
-    [534]		= --Stros M'Kai
+    [534]       = --Stros M'Kai
     {
         [1] = { n = "Saintsport", t = DESTINATIONS_PIN_TYPE_TOWN},
         [2] = { n = "Bthzark", t = DESTINATIONS_PIN_TYPE_DWEMERRUIN},
@@ -1435,7 +1435,7 @@ Destinations.POIsStore = {
         [11] = { n = "Hunding's Palatial Hall", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Stros M'Kai",
     },
-    [535]		= --Betnikh
+    [535]       = --Betnikh
     {
         [1] = { n = "Grimfield", t = DESTINATIONS_PIN_TYPE_CEMETERY},
         [2] = { n = "Carved Hills", t = DESTINATIONS_PIN_TYPE_GROVE},
@@ -1448,7 +1448,7 @@ Destinations.POIsStore = {
         [9] = { n = "Eyearata", t = DESTINATIONS_PIN_TYPE_AOI},
         ["zoneName"] = "Betnikh",
     },
-    [280]		= --Bleakrock Isle
+    [280]       = --Bleakrock Isle
     {
         [1] = { n = "Orkey's Hollow", t = DESTINATIONS_PIN_TYPE_CAVE},
         [2] = { n = "Skyshroud Barrow", t = DESTINATIONS_PIN_TYPE_RUIN},
@@ -1463,7 +1463,7 @@ Destinations.POIsStore = {
         [11] = { n = "Deathclaw's Lair", t = DESTINATIONS_PIN_TYPE_AOI},
         ["zoneName"] = "Bleakrock Isle",
     },
-    [57]		= --Deshaan
+    [57]        = --Deshaan
     {
         [1] = { n = "Malak's Maw", t = DESTINATIONS_PIN_TYPE_CAMP},
         [2] = { n = "Silent Mire", t = DESTINATIONS_PIN_TYPE_TOWN},
@@ -1530,7 +1530,7 @@ Destinations.POIsStore = {
         [63] = { n = "Flaming Nix Deluxe Garret", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Deshaan",
     },
-    [58]		= --Malabal Tor
+    [58]        = --Malabal Tor
     {
         [1] = { n = "Ouze", t = DESTINATIONS_PIN_TYPE_RUIN},
         [2] = { n = "Dra'bul Wayshrine", t = DESTINATIONS_PIN_TYPE_WAYSHRINE},
@@ -1595,7 +1595,7 @@ Destinations.POIsStore = {
         [61] = { n = "Cyrodilic Jungle House", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Malabal Tor",
     },
-    [347]		= --Coldharbour
+    [347]       = --Coldharbour
     {
         [1] = { n = "The Everfull Flagon", t = DESTINATIONS_PIN_TYPE_TOWN},
         [2] = { n = "The Lost Fleet", t = DESTINATIONS_PIN_TYPE_LIGHTHOUSE},
@@ -1656,7 +1656,7 @@ Destinations.POIsStore = {
         [57] = { n = "Coldharbour Surreal Estate", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Coldharbour",
     },
-    [92]		= --Bangkorai
+    [92]        = --Bangkorai
     {
         [1] = { n = "Jackdaw Cove", t = DESTINATIONS_PIN_TYPE_CAMP},
         [2] = { n = "Northglen", t = DESTINATIONS_PIN_TYPE_FARM},
@@ -1726,7 +1726,7 @@ Destinations.POIsStore = {
         [66] = { n = "Thieves’ Oasis", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Bangkorai",
     },
-    [381]		= --Auridon
+    [381]       = --Auridon
     {
         [1] = { n = "Ezduiin", t = DESTINATIONS_PIN_TYPE_AYLEIDRUIN},
         [2] = { n = "Tanzelwil", t = DESTINATIONS_PIN_TYPE_AYLEIDRUIN},
@@ -1794,7 +1794,7 @@ Destinations.POIsStore = {
         [64] = { n = "Mathiisen Manor", t = DESTINATIONS_PIN_TYPE_HOUSING},
         ["zoneName"] = "Auridon",
     },
-    [382]		= --Reaper's March
+    [382]       = --Reaper's March
     {
         [1] = { n = "Thormar", t = DESTINATIONS_PIN_TYPE_AYLEIDRUIN},
         [2] = { n = "Fort Grimwatch", t = DESTINATIONS_PIN_TYPE_TOWER},
@@ -1860,7 +1860,7 @@ Destinations.POIsStore = {
         [62] = { n = "Dungeon: Moon Hunter Keep", t = DESTINATIONS_PIN_TYPE_GROUPINSTANCE},
         ["zoneName"] = "Reaper's March",
     },
-    [383]		= --Grahtwood
+    [383]       = --Grahtwood
     {
         [1] = { n = "Reliquary of Stars", t = DESTINATIONS_PIN_TYPE_AYLEIDRUIN},
         [2] = { n = "Root Sunder Ruins", t = DESTINATIONS_PIN_TYPE_DUNGEON},
@@ -1926,7 +1926,7 @@ Destinations.POIsStore = {
         [62] = { n = "Dungeon: Lair of Maarselok", t = DESTINATIONS_PIN_TYPE_GROUPINSTANCE},
         ["zoneName"] = "Grahtwood",
     },
-    [849]		= --Vvardenfell
+    [849]       = --Vvardenfell
     {
         [1] = { n = "Gnisis", t = DESTINATIONS_PIN_TYPE_TOWN },
         [2] = { n = "Khartag Point", t = DESTINATIONS_PIN_TYPE_DELVE },
@@ -2020,7 +2020,7 @@ Destinations.POIsStore = {
         [90] = { n = "Dreloth Ancestral Tomb", t = DESTINATIONS_PIN_TYPE_CEMETERY },
         ["zoneName"] = "Vvardenfell",
     },
-    [980]		= --Clockwork City
+    [980]       = --Clockwork City
     {
         [1] = {n = "Halls of Regulation", t = DESTINATIONS_PIN_TYPE_DELVE}, --
         [2] = {n = "The Shadow Cleft", t = DESTINATIONS_PIN_TYPE_DELVE}, --
@@ -2045,7 +2045,7 @@ Destinations.POIsStore = {
         [21] = {n = "Barilzar's Eighth Laboratory", t = DESTINATIONS_PIN_TYPE_AOI},
         ["zoneName"] = "Clockwork City",
     },
-    [981]		= --Brass Fortress
+    [981]       = --Brass Fortress
     {
         [1] = {n = "", t = DESTINATIONS_PIN_TYPE_UNKNOWN}, --
         [2] = {n = "Brass Fortress Wayshrine", t = DESTINATIONS_PIN_TYPE_WAYSHRINE}, --
@@ -2252,7 +2252,7 @@ Destinations.POIsStore = {
         [3] = {n = "Dragonguard Sanctum Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
         ["zoneName"] = "Tideholm",
     },
-	[1160] = -- Western Skyrim (Greymoor)
+    [1160] = -- Western Skyrim (Greymoor)
     {
         [1] = {n = "Solitude", t=DESTINATIONS_PIN_TYPE_CITY },
         [2] = {n = "Morthal", t=DESTINATIONS_PIN_TYPE_TOWN },
@@ -2273,52 +2273,52 @@ Destinations.POIsStore = {
         [17] = {n = "Kilkreath Temple Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
         [18] = {n = "Morthal Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
         [19] = {n = "Mor Khazgur Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
-        [20] = {n = "Dragon Bridge Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },		
+        [20] = {n = "Dragon Bridge Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
         [21] = {n = "Southern Watch Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
         [22] = {n = "Frozen Coast Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
         [23] = {n = "Solitude Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
         [24] = {n = "Hordrek's Hunting Grounds", t=DESTINATIONS_PIN_TYPE_GROUPBOSS },
-		--[25] = {n = "", t=DESTINATIONS_PIN_TYPE_UNKNOWN },
-		[26] = {n = "Circle of Champions", t=DESTINATIONS_PIN_TYPE_GROUPBOSS },
-		[27] = {n = "Ysmgar's Beach", t=DESTINATIONS_PIN_TYPE_GROUPBOSS },
-		[28] = {n = "Shademother's Haven", t=DESTINATIONS_PIN_TYPE_GROUPBOSS },
-		[29] = {n = "Old Karth Ritual Site", t=DESTINATIONS_PIN_TYPE_PORTAL },
-		[30] = {n = "Black Morass Ritual Site", t=DESTINATIONS_PIN_TYPE_PORTAL },
-		[31] = {n = "Giant's Coast Ritual Site", t=DESTINATIONS_PIN_TYPE_PORTAL },
-		[32] = {n = "Chilblain Peak Ritual Site", t=DESTINATIONS_PIN_TYPE_PORTAL },
-		[33] = {n = "Hailstone Valley Ritual Site", t=DESTINATIONS_PIN_TYPE_PORTAL },
-		[34] = {n = "Northern Watch Ritual Site", t=DESTINATIONS_PIN_TYPE_PORTAL },
-		[35] = {n = "Coastal Giant Camp", t=DESTINATIONS_PIN_TYPE_CAMP },
-		[36] = {n = "Karthald Giant Camp", t=DESTINATIONS_PIN_TYPE_CAMP },
-		[37] = {n = "Kilkreath Giant Camp", t=DESTINATIONS_PIN_TYPE_CAMP},
-		[38] = {n = "Highland Giant Camp", t=DESTINATIONS_PIN_TYPE_CAMP },
-		[39] = {n = "Trial: Kyne's Aegis", t=DESTINATIONS_PIN_TYPE_RAIDDUNGEON },
-		[40] = {n = "Solitude Docks Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
-		--[41] = {n = "", t=DESTINATIONS_PIN_TYPE_UNKNOWN },
-		[42] = {n = "Deepwood Vale Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
-		[43] = {n = "Deepwood Giant Camp", t=DESTINATIONS_PIN_TYPE_CAMP },
-		--[44] = {n = "", t=DESTINATIONS_PIN_TYPE_UNKNOWN },
-		--[45] = {n = "", t=DESTINATIONS_PIN_TYPE_UNKNOWN },
-		--[46] = {n = "", t=DESTINATIONS_PIN_TYPE_UNKNOWN },
-		--[47] = {n = "", t=DESTINATIONS_PIN_TYPE_UNKNOWN },
-		[48] = {n = "Hunter's House", t=DESTINATIONS_PIN_TYPE_CRAFTING, s = CRAFTINGSET_STUHNS_FAVOR },
-		[49] = {n = "Dragon's Belly", t=DESTINATIONS_PIN_TYPE_CRAFTING, s = CRAFTINGSET_DRAGONS_APPETITE },
-		[50] = {n = "Lendoran Ruin", t=DESTINATIONS_PIN_TYPE_AOI },
-		[51] = {n = "Storm-Hawk's Altar", t=DESTINATIONS_PIN_TYPE_AOI },
-		[52] = {n = "Sword's Point Watchtower", t=DESTINATIONS_PIN_TYPE_AOI },
-		[53] = {n = "Wolf's Eye Lighthouse", t=DESTINATIONS_PIN_TYPE_AOI },
-		[54] = {n = "Mor Khazgur Giant Camp", t=DESTINATIONS_PIN_TYPE_CAMP },
-		[55] = {n = "Proudspire Manor", t=DESTINATIONS_PIN_TYPE_HOUSING },
-		[56] = {n = "Snowmelt Suite", t=DESTINATIONS_PIN_TYPE_HOUSING },
-		[57] = {n = "Castle Thorn", t=DESTINATIONS_PIN_TYPE_GROUPINSTANCE },
-		[58] = {n = "Giant's Coast Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
-		[59] = {n = "Northern Watch Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
-		[60] = {n = "Clifftop House", t=DESTINATIONS_PIN_TYPE_HOUSING },
-		[61] = {n = "Stillwaters Retreat", t=DESTINATIONS_PIN_TYPE_HOUSING },
-		[62] = {n = "Shalidor's Shrouded Realm", t=DESTINATIONS_PIN_TYPE_HOUSING },
+        --[25] = {n = "", t=DESTINATIONS_PIN_TYPE_UNKNOWN },
+        [26] = {n = "Circle of Champions", t=DESTINATIONS_PIN_TYPE_GROUPBOSS },
+        [27] = {n = "Ysmgar's Beach", t=DESTINATIONS_PIN_TYPE_GROUPBOSS },
+        [28] = {n = "Shademother's Haven", t=DESTINATIONS_PIN_TYPE_GROUPBOSS },
+        [29] = {n = "Old Karth Ritual Site", t=DESTINATIONS_PIN_TYPE_PORTAL },
+        [30] = {n = "Black Morass Ritual Site", t=DESTINATIONS_PIN_TYPE_PORTAL },
+        [31] = {n = "Giant's Coast Ritual Site", t=DESTINATIONS_PIN_TYPE_PORTAL },
+        [32] = {n = "Chilblain Peak Ritual Site", t=DESTINATIONS_PIN_TYPE_PORTAL },
+        [33] = {n = "Hailstone Valley Ritual Site", t=DESTINATIONS_PIN_TYPE_PORTAL },
+        [34] = {n = "Northern Watch Ritual Site", t=DESTINATIONS_PIN_TYPE_PORTAL },
+        [35] = {n = "Coastal Giant Camp", t=DESTINATIONS_PIN_TYPE_CAMP },
+        [36] = {n = "Karthald Giant Camp", t=DESTINATIONS_PIN_TYPE_CAMP },
+        [37] = {n = "Kilkreath Giant Camp", t=DESTINATIONS_PIN_TYPE_CAMP},
+        [38] = {n = "Highland Giant Camp", t=DESTINATIONS_PIN_TYPE_CAMP },
+        [39] = {n = "Trial: Kyne's Aegis", t=DESTINATIONS_PIN_TYPE_RAIDDUNGEON },
+        [40] = {n = "Solitude Docks Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
+        --[41] = {n = "", t=DESTINATIONS_PIN_TYPE_UNKNOWN },
+        [42] = {n = "Deepwood Vale Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
+        [43] = {n = "Deepwood Giant Camp", t=DESTINATIONS_PIN_TYPE_CAMP },
+        --[44] = {n = "", t=DESTINATIONS_PIN_TYPE_UNKNOWN },
+        --[45] = {n = "", t=DESTINATIONS_PIN_TYPE_UNKNOWN },
+        --[46] = {n = "", t=DESTINATIONS_PIN_TYPE_UNKNOWN },
+        --[47] = {n = "", t=DESTINATIONS_PIN_TYPE_UNKNOWN },
+        [48] = {n = "Hunter's House", t=DESTINATIONS_PIN_TYPE_CRAFTING, s = CRAFTINGSET_STUHNS_FAVOR },
+        [49] = {n = "Dragon's Belly", t=DESTINATIONS_PIN_TYPE_CRAFTING, s = CRAFTINGSET_DRAGONS_APPETITE },
+        [50] = {n = "Lendoran Ruin", t=DESTINATIONS_PIN_TYPE_AOI },
+        [51] = {n = "Storm-Hawk's Altar", t=DESTINATIONS_PIN_TYPE_AOI },
+        [52] = {n = "Sword's Point Watchtower", t=DESTINATIONS_PIN_TYPE_AOI },
+        [53] = {n = "Wolf's Eye Lighthouse", t=DESTINATIONS_PIN_TYPE_AOI },
+        [54] = {n = "Mor Khazgur Giant Camp", t=DESTINATIONS_PIN_TYPE_CAMP },
+        [55] = {n = "Proudspire Manor", t=DESTINATIONS_PIN_TYPE_HOUSING },
+        [56] = {n = "Snowmelt Suite", t=DESTINATIONS_PIN_TYPE_HOUSING },
+        [57] = {n = "Castle Thorn", t=DESTINATIONS_PIN_TYPE_GROUPINSTANCE },
+        [58] = {n = "Giant's Coast Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
+        [59] = {n = "Northern Watch Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
+        [60] = {n = "Clifftop House", t=DESTINATIONS_PIN_TYPE_HOUSING },
+        [61] = {n = "Stillwaters Retreat", t=DESTINATIONS_PIN_TYPE_HOUSING },
+        [62] = {n = "Shalidor's Shrouded Realm", t=DESTINATIONS_PIN_TYPE_HOUSING },
         ["zoneName"] = "Western Skyrim",
     },
-	[1161] = -- Western Skyrim (Blackreach: Greymoor Caverns)
+    [1161] = -- Western Skyrim (Blackreach: Greymoor Caverns)
     {
         [1] = {n = "Dusktown", t=DESTINATIONS_PIN_TYPE_TOWN },
         [2] = {n = "Greymoor Keep", t=DESTINATIONS_PIN_TYPE_ESTATE },
@@ -2344,12 +2344,12 @@ Destinations.POIsStore = {
         [22] = {n = "Parasite's Cave", t=DESTINATIONS_PIN_TYPE_CRAFTING, s = CRAFTINGSET_SPELL_PARASITE },
         [23] = {n = "Dwarven Run Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
         [24] = {n = "Grotto Falls Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
-		[25] = {n = "Deep Overlook Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
-		[26] = {n = "Western Greymoor Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
-		[27] = {n = "Darkrise Overlook", t=DESTINATIONS_PIN_TYPE_AOI },
-		[28] = {n = "Gloomstalker Village", t=DESTINATIONS_PIN_TYPE_AOI },
-		[29] = {n = "Bastion Sanguinaris", t=DESTINATIONS_PIN_TYPE_HOUSING },
-		[30] = {n = "Stone Garden", t=DESTINATIONS_PIN_TYPE_GROUPINSTANCE },
+        [25] = {n = "Deep Overlook Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
+        [26] = {n = "Western Greymoor Wayshrine", t=DESTINATIONS_PIN_TYPE_WAYSHRINE },
+        [27] = {n = "Darkrise Overlook", t=DESTINATIONS_PIN_TYPE_AOI },
+        [28] = {n = "Gloomstalker Village", t=DESTINATIONS_PIN_TYPE_AOI },
+        [29] = {n = "Bastion Sanguinaris", t=DESTINATIONS_PIN_TYPE_HOUSING },
+        [30] = {n = "Stone Garden", t=DESTINATIONS_PIN_TYPE_GROUPINSTANCE },
         ["zoneName"] = "Blackreach: Greymoor Caverns",
     },
 }
