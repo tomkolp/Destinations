@@ -65,6 +65,7 @@ Destinations.FishIDs = {
     [2027] = (GetAchievementInfo(2027)),    --"Clockwork City Master Angler"
     [2191] = (GetAchievementInfo(2191)),    --"Summerset Master Angler"
     [2240] = (GetAchievementInfo(2240)),    --"Artaeum Master Angler"
+    [2655] = (GetAchievementInfo(2655)),    --"Western Skyrim Master Angler"
 
 }
 Destinations.FishLocs = {

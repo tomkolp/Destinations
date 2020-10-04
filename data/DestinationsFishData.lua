@@ -356,6 +356,8 @@ Destinations.FishLocationsStore = {
         {11, DESTINATIONS_FISH_TYPE_FOUL},
         {12, DESTINATIONS_FISH_TYPE_FOUL},
     },
-
+    [2655] = { -- Western Skyrim
+        {1, DESTINATIONS_FISH_TYPE_OCEAN},
+    },
 }
 

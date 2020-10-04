@@ -3026,4 +3026,7 @@ Destinations.ACHDataStore = {
         {0.5314, 0.5303,    42, 2191,   1,  "X"}, --3.1.3   > AssemblerManiac
         {0.5262, 0.4847,    42, 2191,   1,  "X"}, --3.1.3   > AssemblerManiac
     },
+    ["westernskryim_base_0"] = {
+        {0.129891, 0.356130,    42, 2655,   1,  "X"}, -- Sharlikran
+    },
 }
