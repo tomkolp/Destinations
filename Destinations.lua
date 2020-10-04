@@ -1406,8 +1406,8 @@ local function ShowMyPosition()
 
     local x, y = GetMapPlayerPosition("player")
 
-    local locX = ("%0.04f"):format(zo_round(x*10000)/10000)
-    local locY = ("%0.04f"):format(zo_round(y*10000)/10000)
+    local locX = ("%0.06f"):format(zo_round(x*10000)/10000)
+    local locY = ("%0.06f"):format(zo_round(y*10000)/10000)
 
     local mapname = LMP:GetZoneAndSubzone(true, true, true)
 
