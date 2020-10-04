@@ -3256,7 +3256,7 @@ local function AddAchievementCompassPins()
     end
     if DestinationsCSSV.filters[DPINS.CHAMPION] or DestinationsCSSV.filters[DPINS.CHAMPION_DONE] then
         -- TODO: Check if Murkmire zoneTextureName was fixed, it's nil on PTS 4.2.0
-        if (zoneTextureName == mapTextureName or mapTextureName == "murkmire_base_0") and DestinationsSV.settings.ShowDungeonBossesInZones == false then return end
+        if (zoneTextureName == mapTextureName) and DestinationsSV.settings.ShowDungeonBossesInZones == false then return end
         mapData = DBossStore[mapTextureName]
         if not mapData then return end
         for _, pinData in ipairs(mapData) do
