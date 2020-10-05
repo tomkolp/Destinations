@@ -1076,7 +1076,7 @@ Destinations.ChampionTableStore =   {
         {0.3174,    0.4967, 1054,   6},
         {0.3174,    0.4967,  714,   1},
     },
-    ["Sum_Karnwasten_base_0"] = {
+    ["sum_karnwasten_base_0"] = {
         {0.2061,    0.4547, 2094,   1},
         {0.1828,    0.6783, 2094,   2},
         {0.6462,    0.8179, 2094,   3},
@@ -1201,16 +1201,16 @@ Destinations.ChampionTableStore =   {
     ["torhamekhard_02_base_0"] = {
         {0.6516,    0.1667, 2004,   1},
     },
-    ["TraitorsVault01_base_0"] = {
+    ["traitorsvault01_base_0"] = {
         {0.7163, 0.7623,    2006,   1},
     },
-    ["TraitorsVault02_base_0"] = {
+    ["traitorsvault02_base_0"] = {
         {0.7163, 0.7623,    2006,   1},
     },
-    ["TraitorsVault03_base_0"] = {
+    ["traitorsvault03_base_0"] = {
         {0.7163, 0.7623,    2006,   1},
     },
-    ["TraitorsVault04_base_0"] = {
+    ["traitorsvault04_base_0"] = {
         {0.7163, 0.7623,    2006,   1},
     },
     ["tribulationcrypt_base_0"] = {
@@ -1222,7 +1222,7 @@ Destinations.ChampionTableStore =   {
     ["trollstoothpick_base_0"] = {
         {0.5781766176,  0.5203699470,   539,    1},
     },
-    ["UI_Map_tsofeercavern01_0"] = {
+    ["ui_map_tsofeercavern01_0"] = {
         {0.7699, 0.3632, 2286, 1},
     },
 
@@ -1320,7 +1320,7 @@ Destinations.ChampionTableStore =   {
         {0.1397,    0.7904, 1860,   1},
     },
 
-    ["Zthenganaz_base_0"] = {
+    ["zthenganaz_base_0"] = {
         {0.8934,    0.3325, 1302,   1},
     },
     -- Greymoor
