@@ -51,7 +51,7 @@ Destinations.FishIDs = {
     [487] = (GetAchievementInfo(487)),      --"Reaper's March Angler"
     [488] = (GetAchievementInfo(488)),      --"Dominion Fisherman"
     [489] = (GetAchievementInfo(489)),      --"Cyrodiil Angler"
-    [490] = (GetAchievementInfo(490)),      --"Coldharbor Angler"
+    [490] = (GetAchievementInfo(490)),      --"Coldharbour Angler"
     [491] = (GetAchievementInfo(491)),      --"Stros M'Kai Angler"
     [492] = (GetAchievementInfo(492)),      --"Khenarthi's Roost Angler"
     [493] = (GetAchievementInfo(493)),      --"Bleakrock Angler"
@@ -66,6 +66,10 @@ Destinations.FishIDs = {
     [2191] = (GetAchievementInfo(2191)),    --"Summerset Master Angler"
     [2240] = (GetAchievementInfo(2240)),    --"Artaeum Master Angler"
     [2655] = (GetAchievementInfo(2655)),    --"Western Skyrim Master Angler"
+    [1882] = (GetAchievementInfo(1882)),    --"Morrowind master Angler"
+    [2295] = (GetAchievementInfo(2295)),    --"Murkmire Master Angler"
+    [2566] = (GetAchievementInfo(2566)),    --"Pellitine Master Angler"
+    [2412] = (GetAchievementInfo(2412)),    --"Northern Elsweyr Master Angler"
 
 }
 Destinations.FishLocs = {
@@ -88,7 +92,7 @@ Destinations.FishLocs = {
     ["reapersmarch_base_0"] =       487,        --"Reaper's March Angler"
 
     ["ava_whole_0"] =               489,        --"Cyrodiil Angler"
-    ["coldharbour_base_0"] =        490,        --"Coldharbor Angler"
+    ["coldharbour_base_0"] =        490,        --"Coldharbour Angler"
     ["strosmkai_base_0"] =          491,        --"Stros M'Kai Angler"
     ["khenarthisroost_base_0"] =    492,        --"Khenarthi's Roost Angler"
     ["bleakrock_base_0"] =          493,        --"Bleakrock Angler"
@@ -102,4 +106,9 @@ Destinations.FishLocs = {
     ["clockwork_base_0"] =          2027,       --"Clockwork City Master Angler"
     ["summerset_base_0"] =          2191,       --"Summerset Master Angler"
     ["artaeum_base_0"] =            2240,       --"Artaeum Master Angler"
+    ["westernskryim_base_0"] =      2655,       --"Western Skyrim Master Angler"
+    ["vvardenfell_base_0"] =        1882,       --"Morrowind Master Angler"
+    ["murkmire_base_0"] =           2295,       --"Murkmire Master Angler"
+    ["southernelsweyr_base_0"] =    2566,       --"Pellitine Master Angler"
+    ["elsweyr_base_0"] =            2412,       --"Northern Elsweyr Master Angler"
 }
