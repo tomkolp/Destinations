@@ -359,5 +359,18 @@ Destinations.FishLocationsStore = {
     [2655] = { -- Western Skyrim
         {1, DESTINATIONS_FISH_TYPE_OCEAN},
     },
+    [1882] = { -- Morrowind
+        {1, DESTINATIONS_FISH_TYPE_RIVER},
+    },
+    [2412] = { -- Northern Elsweyr
+        {1, DESTINATIONS_FISH_TYPE_RIVER},
+        {2, DESTINATIONS_FISH_TYPE_RIVER},
+    },
+    [2566] = { -- Southern Elsweyr
+        {1, DESTINATIONS_FISH_TYPE_RIVER},
+    },
+    [2295] = { -- Murkmire
+        {1, DESTINATIONS_FISH_TYPE_OCEAN},
+    },
 }
 

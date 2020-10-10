@@ -3029,4 +3029,19 @@ Destinations.ACHDataStore = {
     ["westernskryim_base_0"] = {
         {0.129891, 0.356130,    42, 2655,   1,  "X"}, -- Sharlikran
     },
+    ["vvardenfell_base_0"] = {
+        {0.365400, 0.793900,    42, 1882,   1,  "X"}, -- Sharlikran
+    },
+    ["riverholdcity_base_0"] = {
+        {0.463100, 0.959200,    41, 2412,   1,  "X"}, -- Sharlikran
+    },
+    ["elsweyr_base_0"] = {
+        {0.475800, 0.190100,    41, 2412,   1,  "X"}, -- Sharlikran
+    },
+    ["southernelsweyr_base_0"] = {
+        {0.408900, 0.534300,    41, 2566,   1,  "X"}, -- Sharlikran
+    },
+    ["murkmire_base_0"] = {
+        {0.789300, 0.597700,    42, 2295,   1,  "X"}, -- Sharlikran
+    },
 }
