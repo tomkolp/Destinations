@@ -372,5 +372,9 @@ Destinations.FishLocationsStore = {
     [2295] = { -- Murkmire
         {1, DESTINATIONS_FISH_TYPE_OCEAN},
     },
+    -- The Reach, and Arkthzand
+    [2861] = {
+        {1, DESTINATIONS_FISH_TYPE_RIVER},
+    },
 }
 

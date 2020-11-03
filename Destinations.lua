@@ -1368,6 +1368,8 @@ local ZoneIDsToFileNames = {
     [181] = "ava_whole_0",
     [584] = "imperialcity_base_0",
     [267] = "eyevea_base_0",
+    [1207] = "reach_base_0",
+    [1208] = "u28_blackreach_base_0",
 }
 
 local achTypes = {
@@ -1406,8 +1408,8 @@ local function ShowMyPosition()
 
     local x, y = GetMapPlayerPosition("player")
 
-    local locX = ("%0.06f"):format(zo_round(x*10000)/10000)
-    local locY = ("%0.06f"):format(zo_round(y*10000)/10000)
+    local locX = ("%0.09f"):format(zo_round(x*10000)/10000)
+    local locY = ("%0.09f"):format(zo_round(y*10000)/10000)
 
     local mapname = LMP:GetZoneAndSubzone(true, true, true)
 
