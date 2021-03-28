@@ -26,7 +26,7 @@ Index Mix that I don't understand how that works
 Most languages only have Quest Names or Quest Givers that
 change, which won't matter once LibQuestData is fully updated
 ]]--
-Destinations.supported_lang = { "de", "en", "fr", "fx", "jp", "kb", "kr", "pl", "ru", "tr", }
+Destinations.supported_lang = { "de", "en", "fr", "fx", "jp", "kb", "kr", "pl", "ru", }
 if is_in(Destinations.client_lang, Destinations.supported_lang) then
   Destinations.effective_lang = Destinations.client_lang
 else
