@@ -18,7 +18,15 @@ end
 
 Destinations.client_lang = GetCVar("language.2")
 Destinations.effective_lang = nil
-Destinations.supported_lang = { "de", "en", "fr", "fx","jp", "pl", "ru", }
+--[[
+FX is an alternate Polish lang file
+KB is Korean Beta and TR is some kind of Korean and English
+Index Mix that I don't understand how that works
+
+Most languages only have Quest Names or Quest Givers that
+change, which won't matter once LibQuestData is fully updated
+]]--
+Destinations.supported_lang = { "de", "en", "fr", "fx", "jp", "kb", "kr", "pl", "ru", "tr", }
 if is_in(Destinations.client_lang, Destinations.supported_lang) then
   Destinations.effective_lang = Destinations.client_lang
 else
