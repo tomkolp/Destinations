@@ -1123,8 +1123,8 @@ Destinations.ChampionTableStore =   {
         {0.33,  0.22,   374,    4},
         {0.82,  0.20,   374,    5},
         {0.38,  0.13,   374,    6},
-        {0.6325,    0.4584, 371,    1},
         {0.68,  0.53,   374,    7},
+        {0.6325,    0.4584, 371,    1},
         {0.11,  0.87,   371,    1},
     },
     ["therift_base_0"] = {
@@ -1345,6 +1345,10 @@ Destinations.ChampionTableStore =   {
     ["labyrinthian_base_0"] = { -- Labyrinthian
        { 0.8182, 0.6971, 2717, 1}, -- Blackmaw
        { 0.8411, 0.2733, 2717, 2}, -- Tulnir
+       { 0.7389208078, 0.4265490472, 2714, 1}, -- Labyrinthian Group Event
+       { 0.7389208078, 0.4265490472, 2717, 3}, -- Gralthum the Tormented
+       { 0.7389208078, 0.4265490472, 2717, 4}, -- Andumgar
+       { 0.7389208078, 0.4265490472, 2717, 5}, -- Hjarnnir and Sleeraak
     },
     ["labyrinthianb_base_0"] = { -- Labyrinthian Temple
        { 0.1398, 0.5149, 2714, 1}, -- Labyrinthian Group Event
@@ -1365,9 +1369,49 @@ Destinations.ChampionTableStore =   {
         {0.1189,    0.4400, 2640,   1},
         {0.7456,    0.3259, 2641,   1},
         {0.4865,    0.3047, 2643,   1},
+       { 0.7396755218, 0.6594114303, 2714, 1}, -- Labyrinthian Group Event
+       { 0.7396755218, 0.6594114303, 2717, 1}, -- Blackmaw
+       { 0.7396755218, 0.6594114303, 2717, 2}, -- Tulnir
+       { 0.7396755218, 0.6594114303, 2717, 3}, -- Gralthum the Tormented
+       { 0.7396755218, 0.6594114303, 2717, 4}, -- Andumgar
+       { 0.7396755218, 0.6594114303, 2717, 5}, -- Hjarnnir and Sleeraak
     },
     ["blackreach_base_0"] = { -- Blackreach Greymmor Cavern Overview
         {0.7667,    0.3702, 2642,   1},
         {0.0842,    0.3673, 2644,   1},
+       { 0.6037037037, 0.5592592592, 2715, 1}, -- Nchuthnkarst Group Event
+       { 0.4944412708, 0.6632637381, 2718, 1}, -- Dwarf-light the Destroyer
+       { 0.4944412708, 0.6632637381, 2718, 2}, -- Imperfect Iteration
+       { 0.4944412708, 0.6632637381, 2718, 3}, -- Shahmar
+       { 0.4944412708, 0.6632637381, 2718, 4}, -- Brsssp the Behemoth
+       { 0.4944412708, 0.6632637381, 2718, 5}, -- Krodunth the Mantikora
+    },
+    ["u28_blackreach_base_0"] = {
+        { 0.7381159067, 0.3307113349, 2852, 1}, -- Gloomreach
+    },
+    ["reach_base_0"] = {
+        { 0.3361365199, 0.6641942262, 2853, 1}, -- Briar Rock Ruins
+        { 0.7304539084, 0.6999648213, 2852, 1}, -- Gloomreach
+    },
+    ["gloomreach2_base_0"] = {
+        { 0.2932, 0.5010, 2852, 1}, -- Gloomreach
+    },
+    ["gloomreach_base_0"] = {
+        { 0.2932, 0.5010, 2852, 1}, -- Gloomreach
+    },
+    ["gloomreach2b_base_0"] = {
+        { 0.2932, 0.5010, 2852, 1}, -- Gloomreach
+    },
+    ["gloomreach2c_base_0"] = {
+        { 0.2932, 0.5010, 2852, 1}, -- Gloomreach
+    },
+    ["gloomreach4_base_0"] = {
+        { 0.2932, 0.5010, 2852, 1}, -- Gloomreach
+    },
+    ["gloomreach5_base_0"] = {
+        { 0.2932, 0.5010, 2852, 1}, -- Gloomreach
+    },
+    ["briarrockruins_ext_base_0"] = {
+        { 0.1231, 0.5768, 2853, 1}, -- Briar Rock Ruins
     },
 }
