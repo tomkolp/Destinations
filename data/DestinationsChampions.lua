@@ -820,7 +820,7 @@ Destinations.ChampionTableStore =   {
     ["onkobrakwamamine_base_0"] = {
         {0.6437625289,  0.5527018309,   249,    1},
     },
-    ["orcrest_Base_0"] = {
+    ["orcrest_base_0"] = {
         {0.5437,    0.6444, 2442,   1},
         {0.2695,    0.7753, 2442,   2},
         {0.6115,    0.4222, 2442,   3},
@@ -830,7 +830,7 @@ Destinations.ChampionTableStore =   {
         {0.3077,    0.6907, 2442,   5},
         {0.7854,    0.2845, 2445,   1},
     },
-    ["orcrest2_Base_0"] = {
+    ["orcrest2_base_0"] = {
         {0.5437,    0.6444, 2442,   1},
         {0.2695,    0.7753, 2442,   2},
         {0.6115,    0.4222, 2442,   3},
@@ -840,7 +840,7 @@ Destinations.ChampionTableStore =   {
         {0.3077,    0.6907, 2442,   5},
         {0.7854,    0.2845, 2445,   1},
     },
-    ["orcrestsewer_Base_0"] = {
+    ["orcrestsewer_base_0"] = {
         {0.4704,    0.4999, 2442,   5},
     },
     ["orcsfingerruins_base_0"] = {

@@ -40,7 +40,7 @@ Destinations.supported_lang = Destinations.client_lang == Destinations.effective
 
 local ADDON_NAME = "Destinations"
 local ADDON_AUTHOR = "Sharlikran |c990000Snowman|r|cFFFFFFDK|r & MasterLenman & Ayantir"
-local ADDON_VERSION = "27.4"
+local ADDON_VERSION = "27.5"
 local ADDON_WEBSITE = "http://www.esoui.com/downloads/info667-Destinations.html"
 
 local LMP = LibMapPins
