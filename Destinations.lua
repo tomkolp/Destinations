@@ -4671,7 +4671,7 @@ local function ShowQuestEditingMenu(pin)
   end
 
   local questTableName
-  local allQuestNames = lib.quest_names[Destinations.effective_lang]
+  local allQuestNames = LQD.quest_names[Destinations.effective_lang]
   for questTableID, questData in pairs(allQuestNames) do
     questTableName = questData
     if questTableName then
