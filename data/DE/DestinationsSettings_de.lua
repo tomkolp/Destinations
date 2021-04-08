@@ -55,14 +55,6 @@ local strings = {
   --Settings Menu
       DEST_SETTINGS_TITLE = "Destinations",
 
-      DEST_SETTINGS_USE_ACCOUNTWIDE = "Accountweite Einstellungen",
-      DEST_SETTINGS_USE_ACCOUNTWIDE_TT = "Wenn eingeschaltet, gelten die Einstellugen für alle Charakter.",
-      DEST_SETTINGS_RELOAD_WARNING = "Benutze den Chat-Befehl \'/reloadui\' um die Einstellungen wirksam zu machen",
-      DEST_SETTINGS_PER_CHAR_HEADER = "Einstellungen die mit '*' markiert sind, gelten ausschliesslich für den aktuellen Charakter.",
-      DEST_SETTINGS_PER_CHAR = "*",
-      DEST_SETTINGS_PER_CHAR_TOGGLE_TT = "Der Wechsel hat nur Einfluss auf den aktuellen Charakter.",
-      DEST_SETTINGS_PER_CHAR_BUTTON_TT = "Dieser Knopf hat nur Einfluss auf den aktuellen Charakter.",
-
       DEST_SETTINGS_IMPROVEMENT_HEADER = "POI Improvement",
       DEST_SETTINGS_IMPROVEMENT_HEADER_TT = "Improve unknown and known POI",
       DEST_SETTINGS_POI_ENGLISH_TEXT_HEADER = "English text on Points of interest",
@@ -82,6 +74,14 @@ local strings = {
       DEST_SETTINGS_POI_IMPROVE_MUNDUS_TT = "Improve Mundus POIs by adding effect description on tooltip",
       DEST_SETTINGS_POI_IMPROVE_CRAFTING = "Improve Crafting POIs",
       DEST_SETTINGS_POI_IMPROVE_CRAFTING_TT = "Improve Crafting POIs by adding set description on tooltip",
+
+      DEST_SETTINGS_USE_ACCOUNTWIDE = "Accountweite Einstellungen",
+      DEST_SETTINGS_USE_ACCOUNTWIDE_TT = "Wenn eingeschaltet, gelten die Einstellugen für alle Charakter.",
+      DEST_SETTINGS_RELOAD_WARNING = "Benutze den Chat-Befehl \'/reloadui\' um die Einstellungen wirksam zu machen",
+      DEST_SETTINGS_PER_CHAR_HEADER = "Einstellungen die mit '*' markiert sind, gelten ausschliesslich für den aktuellen Charakter.",
+      DEST_SETTINGS_PER_CHAR = "*",
+      DEST_SETTINGS_PER_CHAR_TOGGLE_TT = "Der Wechsel hat nur Einfluss auf den aktuellen Charakter.",
+      DEST_SETTINGS_PER_CHAR_BUTTON_TT = "Dieser Knopf hat nur Einfluss auf den aktuellen Charakter.",
 
       DEST_SETTINGS_POI_HEADER = "Sehenswürdigkeiten",
       DEST_SETTINGS_POI_HEADER_TT = "Dieses untermenü deckt dir unbekannte und bekannte Sehenswürdigkeiten, sowie Gildenhändler auf.",
@@ -256,6 +256,10 @@ local strings = {
       DEST_SETTINGS_QUEST_ALL_PIN_LAYER = "Symbolebene (Layer) aller Questpins",
       DEST_SETTINGS_QUEST_COMPASS_TOGGLE = "Quests im Kompass",
       DEST_SETTINGS_QUEST_COMPASS_DIST = "Distanz im Kompass",
+
+      DEST_SETTINGS_REGISTER_QUEST_GIVER_TOGGLE = "Hide Quest Giver Name",
+      DEST_SETTINGS_REGISTER_QUEST_GIVER_TOGGLE_TT = "Show/Hide the name of the Quest giver in the tooltip.",
+
       DEST_SETTINGS_REGISTER_QUESTS_TOGGLE = "Quests erfassen",
       DEST_SETTINGS_REGISTER_QUESTS_TOGGLE_TT = "Speichert die Questinfos in deinen SavedVariables um neue dem Author zu melden. Genauere Infos bitte auf ESOUI.com nachlesen.",
       DEST_SETTINGS_QUEST_RESET_HIDDEN = "Versteckte Quests zurücksetzen",

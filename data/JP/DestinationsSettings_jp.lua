@@ -55,20 +55,6 @@ local strings = {
   --Settings Menu
       DEST_SETTINGS_TITLE = "Destinations (JP)",
 
-      DEST_SETTINGS_USE_ACCOUNTWIDE = "アカウント共通の設定を使用する",
-      DEST_SETTINGS_USE_ACCOUNTWIDE_TT = "オンにすると全てのキャラクターで同じ設定になります",
-      DEST_SETTINGS_RELOAD_WARNING = "この設定を変更するとすぐに /reloadui が実行されます",
-      DEST_SETTINGS_PER_CHAR_HEADER = "黄色の '*' のマークのついた設定は、現在のキャラクターのみに適用されます",
-      DEST_SETTINGS_PER_CHAR = "*",
-      DEST_SETTINGS_PER_CHAR_TOGGLE_TT = "このスイッチは現在のキャラクターのみに適用されます",
-      DEST_SETTINGS_PER_CHAR_BUTTON_TT = "このボタンは現在のキャラクターのみに適用されます",
-
-      DEST_SETTINGS_POI_HEADER = "地点",
-      DEST_SETTINGS_POI_HEADER_TT = "このサブメニューはギルドの商人の位置を含む、未知・既知の地点をカバーします",
-      DEST_SETTINGS_POI_UNKOWN_SUBHEADER = "未知の地点",
-      DEST_SETTINGS_POI_KNOWN_SUBHEADER = "既知の地点",
-      DEST_SETTINGS_POIS_ENGLISH_TEXT_HEADER = "英語表記の地点",
-
       DEST_SETTINGS_IMPROVEMENT_HEADER = "POI Improvement",
       DEST_SETTINGS_IMPROVEMENT_HEADER_TT = "Improve unknown and known POI",
       DEST_SETTINGS_POI_ENGLISH_TEXT_HEADER = "English text on Points of interest",
@@ -88,6 +74,20 @@ local strings = {
       DEST_SETTINGS_POI_IMPROVE_MUNDUS_TT = "Improve Mundus POIs by adding effect description on tooltip",
       DEST_SETTINGS_POI_IMPROVE_CRAFTING = "Improve Crafting POIs",
       DEST_SETTINGS_POI_IMPROVE_CRAFTING_TT = "Improve Crafting POIs by adding set description on tooltip",
+
+      DEST_SETTINGS_USE_ACCOUNTWIDE = "アカウント共通の設定を使用する",
+      DEST_SETTINGS_USE_ACCOUNTWIDE_TT = "オンにすると全てのキャラクターで同じ設定になります",
+      DEST_SETTINGS_RELOAD_WARNING = "この設定を変更するとすぐに /reloadui が実行されます",
+      DEST_SETTINGS_PER_CHAR_HEADER = "黄色の '*' のマークのついた設定は、現在のキャラクターのみに適用されます",
+      DEST_SETTINGS_PER_CHAR = "*",
+      DEST_SETTINGS_PER_CHAR_TOGGLE_TT = "このスイッチは現在のキャラクターのみに適用されます",
+      DEST_SETTINGS_PER_CHAR_BUTTON_TT = "このボタンは現在のキャラクターのみに適用されます",
+
+      DEST_SETTINGS_POI_HEADER = "地点",
+      DEST_SETTINGS_POI_HEADER_TT = "このサブメニューはギルドの商人の位置を含む、未知・既知の地点をカバーします",
+      DEST_SETTINGS_POI_UNKOWN_SUBHEADER = "未知の地点",
+      DEST_SETTINGS_POI_KNOWN_SUBHEADER = "既知の地点",
+      DEST_SETTINGS_POIS_ENGLISH_TEXT_HEADER = "英語表記の地点",
 
       DEST_SETTINGS_UNKNOWN_PIN_TOGGLE = "未知の地点を表示する",
       DEST_SETTINGS_UNKNOWN_PIN_STYLE = "未知の地点の地図上のピン",
@@ -256,6 +256,10 @@ local strings = {
       DEST_SETTINGS_QUEST_ALL_PIN_LAYER = "全てのクエストのピンのレイヤー",
       DEST_SETTINGS_QUEST_COMPASS_TOGGLE = "コンパス上のクエストのピンを表示する",
       DEST_SETTINGS_QUEST_COMPASS_DIST = "コンパス上のクエストのピンの距離",
+
+      DEST_SETTINGS_REGISTER_QUEST_GIVER_TOGGLE = "Hide Quest Giver Name",
+      DEST_SETTINGS_REGISTER_QUEST_GIVER_TOGGLE_TT = "Show/Hide the name of the Quest giver in the tooltip.",
+
       DEST_SETTINGS_REGISTER_QUESTS_TOGGLE = "クエストを登録する",
       DEST_SETTINGS_REGISTER_QUESTS_TOGGLE_TT = "報告のためにクエストの情報を保存する。詳しくは ESOUI.com の Destinations のページをご覧ください。",
       DEST_SETTINGS_QUEST_RESET_HIDDEN = "隠したクエストをリセット",
@@ -462,6 +466,7 @@ local strings = {
       RELOADUI_WARNING = "このボタンをクリックしたら /reloadui が実行されます",
       RELOADUI_INFO = "この設定の変更は'UI更新'ボタンをクリックするまで反映されません。",
       DEST_SETTINGS_RELOADUI = "UI更新",
+    DEST_SET_REQUIREMENT = "<<1>> traits required",
 }
 
 for key, value in pairs(strings) do
