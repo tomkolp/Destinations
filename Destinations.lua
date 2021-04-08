@@ -40,7 +40,7 @@ Destinations.supported_lang                     = Destinations.client_lang == De
 
 local ADDON_NAME                                = "Destinations"
 local ADDON_AUTHOR                              = "Sharlikran |c990000Snowman|r|cFFFFFFDK|r & MasterLenman & Ayantir"
-local ADDON_VERSION                             = "27.6"
+local ADDON_VERSION                             = "27.7"
 local ADDON_WEBSITE                             = "http://www.esoui.com/downloads/info667-Destinations.html"
 
 local LMP                                       = LibMapPins
@@ -48,7 +48,6 @@ local LQD                                       = LibQuestData
 
 local isQuestCompleted                          = true
 local mapTextureName, zoneTextureName, mapData, zoneQuests
-local last_mapid = 0
 local DestinationsSV, DestinationsCSSV, DestinationsAWSV, playerAlliance
 
 local destinationsSetsData                      = {}
@@ -1443,16 +1442,14 @@ local achTypes                                  = {
 }
 
 local function check_map_state()
-    if last_mapid and (GetCurrentMapId() ~= last_mapid) then
-        if GetMapType() > MAPTYPE_ZONE then
-            return
-        end
-        zoneQuests = LQD.zone_quests
+    if GetMapType() > MAPTYPE_ZONE then
+        return
     end
-    last_mapid = GetCurrentMapId()
+    zoneQuests = LQD.zone_quests
+    QuestMap:RefreshPins()
 end
 
-CALLBACK_MANAGER:RegisterCallback("OnWorldMapChanged", function(navigateIn)
+CALLBACK_MANAGER:RegisterCallback("OnWorldMapChanged", function()
     check_map_state()
 end)
 
@@ -1463,6 +1460,11 @@ WORLD_MAP_SCENE:RegisterCallback("StateChange", function(oldState, newState)
         check_map_state()
     end
 end)
+
+function on_zone_changed(eventCode, zoneName, subZoneName, newSubzone, zoneId, subZoneId)
+  check_map_state()
+end
+EVENT_MANAGER:RegisterForEvent(ADDON_NAME .. "_zone_changed", EVENT_ZONE_CHANGED, on_zone_changed)
 
 -- Slash commands -------------------------------------------------------------
 local function ShowMyPosition()
