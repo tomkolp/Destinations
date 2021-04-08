@@ -51,7 +51,7 @@ local strings = {
     DEST_FILTER_VAMPIRE_ALTAR = "(Dest) Vampire Alters",
     DEST_FILTER_WEREWOLF_SHRINE = "(Dest) Werewolf Shrines",
 
---Settings Menu		
+--Settings Menu
     DEST_SETTINGS_TITLE = "Destinations",
 
     DEST_SETTINGS_IMPROVEMENT_HEADER = "POI Improvement",
@@ -84,6 +84,9 @@ local strings = {
 
     DEST_SETTINGS_POI_HEADER = "Unknown Points of Interest",
     DEST_SETTINGS_POI_HEADER_TT = "This submenu covers Unknown Points of Interest",
+    DEST_SETTINGS_POI_UNKOWN_SUBHEADER = "This may be unused",
+    DEST_SETTINGS_POI_KNOWN_SUBHEADER = "This may be unused",
+    DEST_SETTINGS_POIS_ENGLISH_TEXT_HEADER = "This may be unused",
 
     DEST_SETTINGS_UNKNOWN_PIN_TOGGLE = "Show unknown POIs",
     DEST_SETTINGS_UNKNOWN_PIN_STYLE = "Map pins for unknown POIs",
@@ -251,6 +254,10 @@ local strings = {
     DEST_SETTINGS_QUEST_ALL_PIN_LAYER = "Pin layer for all Quest pins",
     DEST_SETTINGS_QUEST_COMPASS_TOGGLE = "Show Quest pins on compass",
     DEST_SETTINGS_QUEST_COMPASS_DIST = "Distance for Quest pins on compass",
+
+    DEST_SETTINGS_REGISTER_QUEST_GIVER_TOGGLE = "Hide Quest Giver Name",
+    DEST_SETTINGS_REGISTER_QUEST_GIVER_TOGGLE_TT = "Show/Hide the name of the Quest giver in the tooltip.",
+
     DEST_SETTINGS_REGISTER_QUESTS_TOGGLE = "Register Quests",
     DEST_SETTINGS_REGISTER_QUESTS_TOGGLE_TT = "Saves quest info to variables for reporting. Please see the Destinations page on ESOUI.com for more info.",
     DEST_SETTINGS_QUEST_RESET_HIDDEN = "Reset Hidden Quests",
@@ -358,7 +365,7 @@ local strings = {
 
     DEST_SETTINGS_RESET = "Reset to default settings",
 
---POI Types			
+--POI Types
     POITYPE_AOI = "Area of Interest",
     POITYPE_HOUSING = "House",
     POITYPE_CRAFTING = "Crafting Location",
@@ -408,14 +415,14 @@ local strings = {
     POITYPE_FISH = "Fishing",
     POITYPE_UNDETERMINED = "Undetermined",
 
--- Quest completion editing texts			
+-- Quest completion editing texts
     QUEST_EDIT_ON = "Destinations Quest Giver editing is turned ON!",
     QUEST_EDIT_OFF = "Destinations Quest Giver editing is turned OFF!",
     QUEST_MENU_NOT_FOUND = "Could not find the quest in the database",
     QUEST_MENU_HIDE_QUEST = "Hide this quest pin",
     QUEST_MENU_DISABLE_EDIT = "Disable Editing",
 
--- Quest types			
+-- Quest types
     QUESTTYPE_NONE = "Quest",
     QUESTTYPE_GROUP = "Group Quest",
     QUESTTYPE_MAIN_STORY = "Main Storyline Quest",
@@ -432,7 +439,7 @@ local strings = {
     QUESTREPEAT_REPEATABLE = "Repeatable Quest",
     QUESTREPEAT_DAILY = "Daily Quest",
 
--- Fishing			
+-- Fishing
     FISHING_FOUL = "Foul Water",
     FISHING_RIVER = "River",
     FISHING_OCEAN = "Ocean",
@@ -444,13 +451,13 @@ local strings = {
     FISHING_LAKE_BAIT = "Guts/Minnow",
     FISHING_HWBC = "Crab-Slaughter-Crane",
 
--- Destinations chat commands			
+-- Destinations chat commands
     DESTCOMMANDS = "Destinations commands list:",
     DESTCOMMANDdhlp = "/dhlp (Destinations Help) : You just used it ;)",
     DESTCOMMANDdset = "/dset (Destinations Settings) : Opens the Destinations Settings window.",
     DESTCOMMANDdqed = "/dqed (Destinations Quests Editor) : This command will TOGGLE editing of quest pins. It will show in the chat if it's on or off. When ON, open your map and click the pins you want to toggle as done or undone. Remember to turn it OFF when done editing by repeating the command!",
 
--- Destinations Misc			
+-- Destinations Misc
     LOAD_NEW_QUEST_FORMAT = "Reset Quest Data",
     LOAD_NEW_QUEST_FORMAT_TT = "This will reload all known quests into a new table. The game will do a /reloadui to complete it.",
     RELOADUI_WARNING = "If you click this button, the game will do a /reloadui",

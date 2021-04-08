@@ -1393,25 +1393,19 @@ Destinations.ChampionTableStore = {
     { 0.3361365199, 0.6641942262, 2853, 1 }, -- Briar Rock Ruins
     { 0.7304539084, 0.6999648213, 2852, 1 }, -- Gloomreach
   },
-  ["gloomreach2_base_0"] = {
-    { 0.2932, 0.5010, 2852, 1 }, -- Gloomreach
-  },
   ["gloomreach_base_0"] = {
-    { 0.2932, 0.5010, 2852, 1 }, -- Gloomreach
-  },
-  ["gloomreach2b_base_0"] = {
-    { 0.2932, 0.5010, 2852, 1 }, -- Gloomreach
-  },
-  ["gloomreach2c_base_0"] = {
-    { 0.2932, 0.5010, 2852, 1 }, -- Gloomreach
-  },
-  ["gloomreach4_base_0"] = {
-    { 0.2932, 0.5010, 2852, 1 }, -- Gloomreach
-  },
-  ["gloomreach5_base_0"] = {
     { 0.2932, 0.5010, 2852, 1 }, -- Gloomreach
   },
   ["briarrockruins_ext_base_0"] = {
     { 0.1231, 0.5768, 2853, 1 }, -- Briar Rock Ruins
   },
 }
+-- alias for Gloomreach
+Destinations.ChampionTableStore["gloomreach2_base_0"]  = Destinations.ChampionTableStore["gloomreach_base_0"]
+Destinations.ChampionTableStore["gloomreach2b_base_0"] = Destinations.ChampionTableStore["gloomreach_base_0"]
+Destinations.ChampionTableStore["gloomreach2c_base_0"] = Destinations.ChampionTableStore["gloomreach_base_0"]
+Destinations.ChampionTableStore["gloomreach3_base_0"]  = Destinations.ChampionTableStore["gloomreach_base_0"]
+Destinations.ChampionTableStore["gloomreach4_base_0"]  = Destinations.ChampionTableStore["gloomreach_base_0"]
+Destinations.ChampionTableStore["gloomreach5_base_0"]  = Destinations.ChampionTableStore["gloomreach_base_0"]
+Destinations.ChampionTableStore["gloomreach5b_base_0"] = Destinations.ChampionTableStore["gloomreach_base_0"]
+

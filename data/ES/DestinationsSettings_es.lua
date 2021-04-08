@@ -1,4 +1,4 @@
-﻿-------------------------------------------
+-------------------------------------------
 -- English localization for Destinations --
 -------------------------------------------
 local strings = {
@@ -54,6 +54,25 @@ local strings = {
   --Settings Menu
       DEST_SETTINGS_TITLE = "Destinations",
 
+    DEST_SETTINGS_IMPROVEMENT_HEADER = "POI Improvement",
+    DEST_SETTINGS_IMPROVEMENT_HEADER_TT = "Improve unknown and known POI",
+    DEST_SETTINGS_POI_ENGLISH_TEXT_HEADER = "English text on Points of interest",
+    DEST_SETTINGS_POI_SHOW_ENGLISH = "Show english POI names",
+    DEST_SETTINGS_POI_SHOW_ENGLISH_TT = "Show english POI names at the top of the map",
+    DEST_SETTINGS_POI_ENGLISH_COLOR = "Text color for English POI names",
+    DEST_SETTINGS_POI_ENGLISH_COLOR_TT = "Set the text color for english translation of POI names",
+    DEST_SETTINGS_POI_SHOW_ENGLISH_KEEPS = "Show english POI names for Keeps",
+    DEST_SETTINGS_POI_SHOW_ENGLISH_KEEPS_TT = "Show english POI names on the keep tooltip",
+    DEST_SETTINGS_POI_ENGLISH_KEEPS_COLOR = "Text color for English Keeps names",
+    DEST_SETTINGS_POI_ENGLISH_KEEPS_COLOR_TT = "Set the text color for english translation of Keeps names",
+    DEST_SETTINGS_POI_ENGLISH_KEEPS_HA = "Hide Alliance Name on Keeps Tooltips",
+    DEST_SETTINGS_POI_ENGLISH_KEEPS_HA_TT = "Hide Alliance Name on Keeps Tooltips",
+    DEST_SETTINGS_POI_ENGLISH_KEEPS_NL = "Add a new line on Keeps tooltips",
+    DEST_SETTINGS_POI_ENGLISH_KEEPS_NL_TT = "Add a new line on Keeps tooltips for english name",
+    DEST_SETTINGS_POI_IMPROVE_MUNDUS = "Improve Mundus POIs",
+    DEST_SETTINGS_POI_IMPROVE_MUNDUS_TT = "Improve Mundus POIs by adding effect description on tooltip",
+    DEST_SETTINGS_POI_IMPROVE_CRAFTING = "Improve Crafting POIs",
+    DEST_SETTINGS_POI_IMPROVE_CRAFTING_TT = "Improve Crafting POIs by adding set description on tooltip",
       DEST_SETTINGS_USE_ACCOUNTWIDE = "Use accountwide settings",
       DEST_SETTINGS_USE_ACCOUNTWIDE_TT = "If on, then the settings will be the same for ALL characters.",
       DEST_SETTINGS_RELOAD_WARNING = "Changing this setting will force an instant /reloadui",
@@ -235,6 +254,8 @@ local strings = {
       DEST_SETTINGS_QUEST_ALL_PIN_LAYER = "Pin layer for all Quest pins",
       DEST_SETTINGS_QUEST_COMPASS_TOGGLE = "Show Quest pins on compass",
       DEST_SETTINGS_QUEST_COMPASS_DIST = "Distance for Quest pins on compass",
+    DEST_SETTINGS_REGISTER_QUEST_GIVER_TOGGLE = "Hide Quest Giver Name",
+    DEST_SETTINGS_REGISTER_QUEST_GIVER_TOGGLE_TT = "Show/Hide the name of the Quest giver in the tooltip.",
       DEST_SETTINGS_REGISTER_QUESTS_TOGGLE = "Register Quests",
       DEST_SETTINGS_REGISTER_QUESTS_TOGGLE_TT = "Saves quest info to variables for reporting. Please see the Destinations page on ESOUI.com for more info.",
       DEST_SETTINGS_QUEST_RESET_HIDDEN = "Reset Hidden Quests",
@@ -440,6 +461,7 @@ local strings = {
       RELOADUI_WARNING = "If you click this button, the game will do a /reloadui",
       RELOADUI_INFO = "Changes to this setting will not be in effect until after you have clicked the 'ReloadUI' button.",
       DEST_SETTINGS_RELOADUI = "ReloadUI",
+    DEST_SET_REQUIREMENT = "<<1>> traits required",
 }
 
 for key, value in pairs(strings) do

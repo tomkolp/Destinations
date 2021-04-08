@@ -1,4 +1,4 @@
-﻿-------------------------------------------
+-------------------------------------------
 -- French localization for Destinations --
 -------------------------------------------
 local strings = {
@@ -55,14 +55,6 @@ local strings = {
   --Settings Menu
       DEST_SETTINGS_TITLE = "Destinations",
 
-      DEST_SETTINGS_USE_ACCOUNTWIDE = "Paramètres communs au compte",
-      DEST_SETTINGS_USE_ACCOUNTWIDE_TT = "Si activé, les paramètres seront les mêmes pour TOUS les personnages.",
-      DEST_SETTINGS_RELOAD_WARNING = "Modifier ce paramètre déclenchera un /reloadui instantanné.",
-      DEST_SETTINGS_PER_CHAR_HEADER = "Les paramètres indiquées avec un '*' jaune n'affectent que le personnage actuel.",
-      DEST_SETTINGS_PER_CHAR = "*",
-      DEST_SETTINGS_PER_CHAR_TOGGLE_TT = "Cette option n'affecte que le personnage actuel.",
-      DEST_SETTINGS_PER_CHAR_BUTTON_TT = "Ce bouton n'affecte que le personnage actuel",
-
       DEST_SETTINGS_IMPROVEMENT_HEADER = "Amélioration des PI",
       DEST_SETTINGS_IMPROVEMENT_HEADER_TT = "Améliorer les points d'intérêt connus et inconnus",
       DEST_SETTINGS_POI_ENGLISH_TEXT_HEADER = "Nom anglais des points d'intérêt",
@@ -83,8 +75,19 @@ local strings = {
       DEST_SETTINGS_POI_IMPROVE_CRAFTING = "Améliorer les PI des Stations d'artisanat",
       DEST_SETTINGS_POI_IMPROVE_CRAFTING_TT = "Améliorer les points d'intérêt des Stations d'artisanat en ajoutant la description du set sur le tooltip",
 
+      DEST_SETTINGS_USE_ACCOUNTWIDE = "Paramètres communs au compte",
+      DEST_SETTINGS_USE_ACCOUNTWIDE_TT = "Si activé, les paramètres seront les mêmes pour TOUS les personnages.",
+      DEST_SETTINGS_RELOAD_WARNING = "Modifier ce paramètre déclenchera un /reloadui instantanné.",
+      DEST_SETTINGS_PER_CHAR_HEADER = "Les paramètres indiquées avec un '*' jaune n'affectent que le personnage actuel.",
+      DEST_SETTINGS_PER_CHAR = "*",
+      DEST_SETTINGS_PER_CHAR_TOGGLE_TT = "Cette option n'affecte que le personnage actuel.",
+      DEST_SETTINGS_PER_CHAR_BUTTON_TT = "Ce bouton n'affecte que le personnage actuel",
+
       DEST_SETTINGS_POI_HEADER = "Points d'intérêt inconnus",
       DEST_SETTINGS_POI_HEADER_TT = "Ce menu gère les points d'intérêts encore inconnus",
+      DEST_SETTINGS_POI_UNKOWN_SUBHEADER = "Unknown Points of Interest",
+      DEST_SETTINGS_POI_KNOWN_SUBHEADER = "Known Points of Interest",
+      DEST_SETTINGS_POIS_ENGLISH_TEXT_HEADER = "English text on Points of interest",
 
       DEST_SETTINGS_UNKNOWN_PIN_TOGGLE = "Afficher les PI inconnus",
       DEST_SETTINGS_UNKNOWN_PIN_STYLE = "Epingle pour les PI inconnus",
@@ -253,6 +256,10 @@ local strings = {
       DEST_SETTINGS_QUEST_ALL_PIN_LAYER = "Couche d'affichage des icônes de quête",
       DEST_SETTINGS_QUEST_COMPASS_TOGGLE = "Afficher les quêtes sur le compas",
       DEST_SETTINGS_QUEST_COMPASS_DIST = "Distance d'affichage des quêtes sur le compas",
+
+    DEST_SETTINGS_REGISTER_QUEST_GIVER_TOGGLE = "Hide Quest Giver Name",
+    DEST_SETTINGS_REGISTER_QUEST_GIVER_TOGGLE_TT = "Show/Hide the name of the Quest giver in the tooltip.",
+
       DEST_SETTINGS_REGISTER_QUESTS_TOGGLE = "Enregistrer les quêtes",
       DEST_SETTINGS_REGISTER_QUESTS_TOGGLE_TT = "Enregistre les informations des quêtes pour rapport. Veuillez vous rendre sur la page EOSUI.com de l'add-on Destination pour plus d'information",
       DEST_SETTINGS_QUEST_RESET_HIDDEN = "RAZ des quêtes cachées",
