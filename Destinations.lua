@@ -1471,10 +1471,6 @@ local function check_map_state()
     RedrawAllPins(DPINS.QUESTS_UNDONE)
     RedrawAllPins(DPINS.QUESTS_IN_PROGRESS)
     RedrawAllPins(DPINS.QUESTS_DONE)
-
-    if DestinationsSV.filters[DPINS.QUESTS_DAILIES] then RedrawMapPinsOnly(DPINS.QUESTS_DAILIES) end
-    if DestinationsSV.filters[DPINS.QUESTS_WRITS] then RedrawMapPinsOnly(DPINS.QUESTS_WRITS) end
-    if DestinationsSV.filters[DPINS.QUESTS_REPEATABLES] then RedrawMapPinsOnly(DPINS.QUESTS_REPEATABLES) end
 end
 
 CALLBACK_MANAGER:RegisterCallback("OnWorldMapChanged", function()
