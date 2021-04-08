@@ -40,7 +40,7 @@ Destinations.supported_lang                     = Destinations.client_lang == De
 
 local ADDON_NAME                                = "Destinations"
 local ADDON_AUTHOR                              = "Sharlikran |c990000Snowman|r|cFFFFFFDK|r & MasterLenman & Ayantir"
-local ADDON_VERSION                             = "27.8"
+local ADDON_VERSION                             = "28.0"
 local ADDON_WEBSITE                             = "http://www.esoui.com/downloads/info667-Destinations.html"
 
 local LMP                                       = LibMapPins
@@ -108,6 +108,7 @@ local DESTINATIONS_PIN_TYPE_NORDBOAT            = 51
 local DESTINATIONS_PIN_TYPE_UNKNOWN             = 99
 
 -- quest value constants
+Destinations.QUEST_DONE                         = 1
 Destinations.QUEST_IN_PROGRESS                  = 2
 Destinations.QUEST_HIDDEN                       = 5
 
@@ -1464,25 +1465,25 @@ local function RedrawCompassPinsOnly(pinType)
 end
 
 local function check_map_state()
-    if GetMapType() > MAPTYPE_ZONE then
-        return
-    end
-    zoneQuests = LQD.zone_quests
-    RedrawAllPins(DPINS.QUESTS_UNDONE)
-    RedrawAllPins(DPINS.QUESTS_IN_PROGRESS)
-    RedrawAllPins(DPINS.QUESTS_DONE)
+  if GetMapType() > MAPTYPE_ZONE then
+    return
+  end
+  zoneQuests = LQD.zone_quests
+  RedrawAllPins(DPINS.QUESTS_UNDONE)
+  RedrawAllPins(DPINS.QUESTS_IN_PROGRESS)
+  RedrawAllPins(DPINS.QUESTS_DONE)
 end
 
 CALLBACK_MANAGER:RegisterCallback("OnWorldMapChanged", function()
-    check_map_state()
+  check_map_state()
 end)
 
 WORLD_MAP_SCENE:RegisterCallback("StateChange", function(oldState, newState)
-    if newState == SCENE_SHOWING then
-        check_map_state()
-    elseif newState == SCENE_HIDDEN then
-        check_map_state()
-    end
+  if newState == SCENE_SHOWING then
+    check_map_state()
+  elseif newState == SCENE_HIDDEN then
+    check_map_state()
+  end
 end)
 
 function on_zone_changed(eventCode, zoneName, subZoneName, newSubzone, zoneId, subZoneId)
@@ -1593,6 +1594,7 @@ local function OtherpinTypeCallback()
     end
   end
 end
+
 local function OtherpinTypeCallbackDone()
   if GetMapType() >= MAPTYPE_WORLD then return end
   drtv.pinName = DPINS.LB_GTTP_CP_DONE
@@ -3107,12 +3109,11 @@ local function Quests_Undone_pinTypeCallback(pinManager)
     local questSeries  = LQD:get_quest_series(QuestID)
     local NPCID        = LQD:get_quest_npc_id(pinData)
     local NPCName, NPC = nil, nil
-    if NPCID ~= -1 then
-      NPCName = LQD:get_quest_giver(NPCID)
-      NPC     = zo_strformat(NPCName)
-    else
-      --d("Missing NPC: "..tostring(NPCID))
-      NPC = "Missing NPC"
+    local useNpcName   = true
+    NPCName            = LQD:get_quest_giver(NPCID)
+    if not NPCName then useNpcName = false end
+    if useNpcName then
+      NPC = zo_strformat(NPCName)
     end
     isQuestCompleted = true
     QuestPinFilters(QuestID, dataName, questLine, questSeries)
@@ -3138,11 +3139,16 @@ local function Quests_Undone_pinTypeCallback(pinManager)
         end
         ]]--
     if dataName ~= Name and DestinationsCSSV.QuestsDone[QuestID] ~= 2 and DestinationsCSSV.QuestsDone[QuestID] ~= 1 and DestinationsCSSV.QuestsDone[QuestID] ~= 5 and isQuestCompleted then
-      drtv.pinTag = { ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsUndone.textcolor)):Colorize(zo_strformat("<<1>>",
-        Name)) }
-      table.insert(drtv.pinTag, 2,
-        ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsUndone.textcolor)):Colorize("[" .. zo_strformat("<<C:1>>",
-          NPC) .. "]"))
+      local outputQuestName = zo_strformat("<<1>>", Name)
+      local outputNpcName   = ""
+      local outputQuestLine = ""
+      if useNpcName then
+        outputNpcName   = zo_strformat("<<C:1>>", NPC)
+        outputQuestLine = string.format("%s [%s]", outputQuestName, outputNpcName)
+      else
+        outputQuestLine = string.format("%s", outputQuestName)
+      end
+      drtv.pinTag              = { ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsUndone.textcolor)):Colorize(outputQuestLine) }
       local Rep                = LQD:get_quest_repeat(QuestID)
       local Type               = LQD:get_quest_type(QuestID)
       local tintIndex, skipRep = 0, false
@@ -3249,18 +3255,22 @@ local function Quests_In_Progress_pinTypeCallback(pinManager)
       local Name         = zo_strformat(QuestName)
       local NPCID        = LQD:get_quest_npc_id(pinData)
       local NPCName, NPC = nil, nil
-      if NPCID ~= -1 then
-        NPCName = LQD:get_quest_giver(NPCID)
-        NPC     = zo_strformat(NPCName)
-      else
-        --d("Missing NPC: "..tostring(NPCID))
-        NPC = "Missing NPC"
+      local useNpcName   = true
+      NPCName            = LQD:get_quest_giver(NPCID)
+      if not NPCName then useNpcName = false end
+      if useNpcName then
+        NPC = zo_strformat(NPCName)
       end
-      drtv.pinTag = { ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsInProgress.textcolor)):Colorize(zo_strformat("<<1>>",
-        Name)) }
-      table.insert(drtv.pinTag, 2,
-        ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsInProgress.textcolor)):Colorize("[" .. zo_strformat("<<C:1>>",
-          NPC) .. "]"))
+      local outputQuestName = zo_strformat("<<1>>", Name)
+      local outputNpcName   = ""
+      local outputQuestLine = ""
+      if useNpcName then
+        outputNpcName   = zo_strformat("<<C:1>>", NPC)
+        outputQuestLine = string.format("%s [%s]", outputQuestName, outputNpcName)
+      else
+        outputQuestLine = string.format("%s", outputQuestName)
+      end
+      drtv.pinTag   = { ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsInProgress.textcolor)):Colorize(outputQuestLine) }
       local Rep     = LQD:get_quest_repeat(QuestID)
       local Type    = LQD:get_quest_type(QuestID)
       local skipRep = false
@@ -3360,20 +3370,24 @@ local function Quests_Done_pinTypeCallback(pinManager)
     local questSeries  = LQD:get_quest_series(QuestID)
     local NPCID        = LQD:get_quest_npc_id(pinData)
     local NPCName, NPC = nil, nil
-    if NPCID ~= -1 then
-      NPCName = LQD:get_quest_giver(NPCID)
-      NPC     = zo_strformat(NPCName)
-    else
-      --d("Missing NPC: "..tostring(NPCID))
-      NPC = "Missing NPC"
+    local useNpcName   = true
+    NPCName            = LQD:get_quest_giver(NPCID)
+    if not NPCName then useNpcName = false end
+    if useNpcName then
+      NPC = zo_strformat(NPCName)
     end
     QuestPinFilters(QuestID, dataName, questLine, questSeries)
     if (dataName == Name and DestinationsCSSV.QuestsDone[QuestID] ~= Destinations.QUEST_HIDDEN and isQuestCompleted) or (DestinationsCSSV.QuestsDone[QuestID] == 1 and isQuestCompleted) then
-      drtv.pinTag = { ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsDone.textcolor)):Colorize(zo_strformat("<<1>>",
-        Name)) }
-      table.insert(drtv.pinTag, 2,
-        ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsDone.textcolor)):Colorize("[" .. zo_strformat("<<C:1>>",
-          NPC) .. "]"))
+      local outputQuestName = zo_strformat("<<1>>", Name)
+      local outputNpcName   = ""
+      local outputQuestLine = ""
+      if useNpcName then
+        outputNpcName   = zo_strformat("<<C:1>>", NPC)
+        outputQuestLine = string.format("%s [%s]", outputQuestName, outputNpcName)
+      else
+        outputQuestLine = string.format("%s", outputQuestName)
+      end
+      drtv.pinTag   = { ZO_ColorDef:New(unpack(DestinationsSV.pins.pinTextureQuestsDone.textcolor)):Colorize(outputQuestLine) }
       local Rep     = LQD:get_quest_repeat(QuestID)
       local Type    = LQD:get_quest_type(QuestID)
       local skipRep = false
@@ -3989,6 +4003,11 @@ local function GetSetDescription(setId)
   return destinationsSetsData[setId]
 end
 
+-- /script d(GetZoneId(GetCurrentMapZoneIndex())) _zoneId_ 823
+-- /script d(GetCurrentMapZoneIndex()) _zoneIndex_ 448
+-- /script d(GetCurrentMapId()) _mapId_ 1006
+-- mapTextureName, zoneTextureName
+
 local function MapCallback_fakeKnown()
 
   if GetMapType() >= MAPTYPE_WORLD then return end
@@ -4005,6 +4024,7 @@ local function MapCallback_fakeKnown()
   for poiIndex = 1, GetNumPOIs(zoneIndex) do
     if not mapData[poiIndex] then
       mapData[poiIndex] = { n = "unknown " .. poiIndex, t = DESTINATIONS_PIN_TYPE_UNKNOWN }
+      d("Fake Pin")
     end
   end
 
@@ -4169,9 +4189,17 @@ local function FormatCoords(number)
   return ("%05.04f"):format(zo_round(number * 10000) / 10000)
 end
 
+local function RegisterQuestAdded(eventCode, journalIndex, questName, objectiveName)
+  Destinations.UpdateQuestsDoneLQD({})
+  RedrawAllPins(DPINS.QUESTS_UNDONE)
+  RedrawAllPins(DPINS.QUESTS_IN_PROGRESS)
+  RedrawAllPins(DPINS.QUESTS_DONE)
+end
+
 local function RegisterQuestDone(eventCode, questName, level, previousExperience, currentExperience, championPoints, questType, instanceDisplayType)
   local questFound, questID = false, 0
   local tempQuestID         = LQD:get_questids_table(questName, Destinations.effective_lang)
+  local questData           = {}
   if #tempQuestID == 1 then
     questFound = true
     questID    = tempQuestID[1]
@@ -4180,7 +4208,6 @@ local function RegisterQuestDone(eventCode, questName, level, previousExperience
     if drtv.getQuestInfo then
       d("Completed: " .. tostring(questID) .. " / " .. questName)
     end
-    local questData = {}
     for k, v in pairs(DestinationsCSSV.QuestsDone) do
       if questID == k then
         if questID == 5073 or questID == 5075 or questID == 5077 then
@@ -4203,11 +4230,8 @@ local function RegisterQuestDone(eventCode, questName, level, previousExperience
         questData[k] = v
       end
     end
-    DestinationsCSSV.QuestsDone = {}
-    for k, v in pairs(questData) do
-      DestinationsCSSV.QuestsDone[k] = v
-    end
   end
+  Destinations.UpdateQuestsDoneLQD(questData)
   RedrawAllPins(DPINS.QUESTS_UNDONE)
   RedrawAllPins(DPINS.QUESTS_IN_PROGRESS)
   RedrawAllPins(DPINS.QUESTS_DONE)
@@ -4229,10 +4253,7 @@ local function RegisterQuestCancelled(eventCode, isCompleted, journalIndex, ques
       end
     end
   end
-  DestinationsCSSV.QuestsDone = {}
-  for k, v in pairs(questData) do
-    DestinationsCSSV.QuestsDone[k] = v
-  end
+  Destinations.UpdateQuestsDoneLQD(questData)
   RedrawAllPins(DPINS.QUESTS_UNDONE)
   RedrawAllPins(DPINS.QUESTS_IN_PROGRESS)
   RedrawAllPins(DPINS.QUESTS_DONE)
@@ -4553,8 +4574,11 @@ local function CheckAlternateQuests()
   end
 end
 
-local function GetInProgressQuests()
-  local questData = {}
+-- sets that the quest is started when the player accepts a quest
+function Destinations.UpdateQuestsDoneLQD(questDataTable)
+  local completed = LQD.completed_quests
+  local started   = LQD.started_quests
+  local questData = questDataTable or {}
   for k, v in pairs(DestinationsCSSV.QuestsDone) do
     if v == Destinations.QUEST_HIDDEN then
       questData[k] = v
@@ -4564,35 +4588,50 @@ local function GetInProgressQuests()
   for k, v in pairs(questData) do
     DestinationsCSSV.QuestsDone[k] = v
   end
-  QuestsInProgress = LQD.started_quests
-  for key, bool in pairs(QuestsInProgress) do
-    local questId                        = key
-    DestinationsCSSV.QuestsDone[questId] = Destinations.QUEST_IN_PROGRESS
-    if questId == 5073 or questId == 5075 or questId == 5077 then
-      -- fighters guild
-      DestinationsCSSV.QuestsDone[5073] = Destinations.QUEST_IN_PROGRESS
-      DestinationsCSSV.QuestsDone[5075] = Destinations.QUEST_IN_PROGRESS
-      DestinationsCSSV.QuestsDone[5077] = Destinations.QUEST_IN_PROGRESS
-    end
-    if questId == 5071 or questId == 5074 or questId == 5076 then
-      -- mages guild
-      DestinationsCSSV.QuestsDone[5071] = Destinations.QUEST_IN_PROGRESS
-      DestinationsCSSV.QuestsDone[5074] = Destinations.QUEST_IN_PROGRESS
-      DestinationsCSSV.QuestsDone[5076] = Destinations.QUEST_IN_PROGRESS
-    end
-    if questId == 4767 or questId == 4967 or questId == 4997 then
-      -- "One of the Undaunted"
-      DestinationsCSSV.QuestsDone[4767] = Destinations.QUEST_IN_PROGRESS
-      DestinationsCSSV.QuestsDone[4967] = Destinations.QUEST_IN_PROGRESS
-      DestinationsCSSV.QuestsDone[4997] = Destinations.QUEST_IN_PROGRESS
-    end
-    if questId >= 5388 and questId <= 5396 then
-      -- "Equipment Crafting Writs"
-      DestinationsCSSV.QuestsDone[5388] = Destinations.QUEST_IN_PROGRESS
-    end
-    if questId >= 5406 and questId <= 5418 then
-      -- "Consumables Crafting Writs"
-      DestinationsCSSV.QuestsDone[5406] = Destinations.QUEST_IN_PROGRESS
+  for key, id in pairs(completed) do
+    DestinationsCSSV.QuestsDone[key] = Destinations.QUEST_DONE
+  end
+  for key, id in pairs(started) do
+    DestinationsCSSV.QuestsDone[key] = Destinations.QUEST_IN_PROGRESS
+  end
+end
+
+local function GetInProgressQuests()
+  Destinations.UpdateQuestsDoneLQD(nil)
+  local numQuests = GetNumJournalQuests()
+  for i = 1, numQuests do
+    local questName, _, _, _, _, _, _, _, _, _ = GetJournalQuestInfo(i)
+    QTableStore                                = LQD.quest_names[Destinations.effective_lang]
+    for y, z in pairs(QTableStore) do
+      if z == questName then
+        local questId = y
+        if questId == 5073 or questId == 5075 or questId == 5077 then
+          -- fighters guild
+          DestinationsCSSV.QuestsDone[5073] = Destinations.QUEST_IN_PROGRESS
+          DestinationsCSSV.QuestsDone[5075] = Destinations.QUEST_IN_PROGRESS
+          DestinationsCSSV.QuestsDone[5077] = Destinations.QUEST_IN_PROGRESS
+        end
+        if questId == 5071 or questId == 5074 or questId == 5076 then
+          -- mages guild
+          DestinationsCSSV.QuestsDone[5071] = Destinations.QUEST_IN_PROGRESS
+          DestinationsCSSV.QuestsDone[5074] = Destinations.QUEST_IN_PROGRESS
+          DestinationsCSSV.QuestsDone[5076] = Destinations.QUEST_IN_PROGRESS
+        end
+        if questId == 4767 or questId == 4967 or questId == 4997 then
+          -- "One of the Undaunted"
+          DestinationsCSSV.QuestsDone[4767] = Destinations.QUEST_IN_PROGRESS
+          DestinationsCSSV.QuestsDone[4967] = Destinations.QUEST_IN_PROGRESS
+          DestinationsCSSV.QuestsDone[4997] = Destinations.QUEST_IN_PROGRESS
+        end
+        if questId >= 5388 and questId <= 5396 then
+          -- "Equipment Crafting Writs"
+          DestinationsCSSV.QuestsDone[5388] = Destinations.QUEST_IN_PROGRESS
+        end
+        if questId >= 5406 and questId <= 5418 then
+          -- "Consumables Crafting Writs"
+          DestinationsCSSV.QuestsDone[5406] = Destinations.QUEST_IN_PROGRESS
+        end
+      end
     end
   end
 end
@@ -4796,22 +4835,26 @@ end
 SLASH_COMMANDS["/dgap"] = function()
   --Get All POI's (to saved vars)
   d("Saving all POI's...")
-  local zoneIndex            = GetCurrentMapZoneIndex()
-  DestinationsSV.TEMPPINDATA = {}
+  local zoneIndex = GetCurrentMapZoneIndex()
+  local currentMapId = GetCurrentMapId()
+  if Destinations_Settings.pointsOfIntrest == nil then Destinations_Settings.pointsOfIntrest = {} end
+  if Destinations_Settings.pointsOfIntrest[currentMapId] == nil then Destinations_Settings.pointsOfIntrest[currentMapId] = {} end
+  Destinations_Settings.pointsOfIntrest[currentMapId] = {}
+  local saveData                                   = Destinations_Settings.pointsOfIntrest[currentMapId]
   if zoneIndex then
     for i = 1, GetNumPOIs(zoneIndex) do
       local normalizedX, normalizedY, poiType, icon = GetPOIMapInfo(zoneIndex, i)
       local objectiveName                           = GetPOIInfo(zoneIndex, i)
       local _, _, _, objectiveIcon, _, _            = GetPOIMapInfo(zoneIndex, i)
       local poiTypeId                               = 99
-      local poiTypeName
-      poiTypeName                                   = GetPoiTypeName(poiTypeId)
+      local poiTypeName = GetPoiTypeName(poiTypeId)
       if objectiveName then
         local POIno = tostring(i)
         if string.len(POIno) == 1 then
           POIno = "0" .. POIno
         end
-        DestinationsSV.TEMPPINDATA[POIno] = objectiveName .. " >>> " .. objectiveIcon
+        local objectiveString = "{ n = 0x22%s0x22, t = %s },"
+        saveData[POIno]       = string.format(objectiveString, objectiveName, objectiveIcon)
         d(tostring(POIno) .. ": " .. objectiveName)
         if string.find(objectiveIcon, "/esoui/art/icons/poi/") then
           objectiveIcon = string.gsub(objectiveIcon, "/esoui/art/icons/poi/", "")
@@ -9767,6 +9810,7 @@ local function OnLoad(eventCode, name)
     EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_GAMEPAD_PREFERRED_MODE_CHANGED, OnGamepadPreferredModeChanged)
     EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_QUEST_COMPLETE, RegisterQuestDone)
     EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_QUEST_REMOVED, RegisterQuestCancelled)
+    EVENT_MANAGER:RegisterForEvent(ADDON_NAME, EVENT_QUEST_ADDED, RegisterQuestAdded)
 
     EVENT_MANAGER:UnregisterForEvent(ADDON_NAME, EVENT_ADD_ON_LOADED)
 
