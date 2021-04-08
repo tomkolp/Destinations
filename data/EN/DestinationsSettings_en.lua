@@ -85,7 +85,7 @@ local strings = {
     DEST_SETTINGS_POI_HEADER = "Unknown Points of Interest",
     DEST_SETTINGS_POI_HEADER_TT = "This submenu covers Unknown Points of Interest",
     DEST_SETTINGS_POI_UNKOWN_SUBHEADER = "This may be unused",
-    DEST_SETTINGS_POI_KNOWN_SUBHEADER = "This may be unused,
+    DEST_SETTINGS_POI_KNOWN_SUBHEADER = "This may be unused",
     DEST_SETTINGS_POIS_ENGLISH_TEXT_HEADER = "This may be unused",
 
     DEST_SETTINGS_UNKNOWN_PIN_TOGGLE = "Show unknown POIs",

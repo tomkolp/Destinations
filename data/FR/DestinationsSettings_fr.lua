@@ -85,6 +85,9 @@ local strings = {
 
       DEST_SETTINGS_POI_HEADER = "Points d'intérêt inconnus",
       DEST_SETTINGS_POI_HEADER_TT = "Ce menu gère les points d'intérêts encore inconnus",
+      DEST_SETTINGS_POI_UNKOWN_SUBHEADER = "Unknown Points of Interest",
+      DEST_SETTINGS_POI_KNOWN_SUBHEADER = "Known Points of Interest",
+      DEST_SETTINGS_POIS_ENGLISH_TEXT_HEADER = "English text on Points of interest",
 
       DEST_SETTINGS_UNKNOWN_PIN_TOGGLE = "Afficher les PI inconnus",
       DEST_SETTINGS_UNKNOWN_PIN_STYLE = "Epingle pour les PI inconnus",
