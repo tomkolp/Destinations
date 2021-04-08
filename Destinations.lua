@@ -40,7 +40,7 @@ Destinations.supported_lang                     = Destinations.client_lang == De
 
 local ADDON_NAME                                = "Destinations"
 local ADDON_AUTHOR                              = "Sharlikran |c990000Snowman|r|cFFFFFFDK|r & MasterLenman & Ayantir"
-local ADDON_VERSION                             = "27.7"
+local ADDON_VERSION                             = "27.8"
 local ADDON_WEBSITE                             = "http://www.esoui.com/downloads/info667-Destinations.html"
 
 local LMP                                       = LibMapPins
@@ -1441,12 +1441,40 @@ local achTypes                                  = {
   [55] = GetString(POITYPE_UNKNOWN),
 }
 
+-- Toggle filters depending on settings
+local function TogglePins(pinType, value)
+  DestinationsCSSV.filters[pinType] = value
+  LMP:SetEnabled(pinType, value)
+end
+
+-- Refresh map and compass pins
+local function RedrawAllPins(pinType)
+  LMP:RefreshPins(pinType)
+  COMPASS_PINS:RefreshPins(pinType)
+end
+
+-- Refresh map pins only
+local function RedrawMapPinsOnly(pinType)
+  LMP:RefreshPins(pinType)
+end
+
+-- Refresh compass pins only
+local function RedrawCompassPinsOnly(pinType)
+  COMPASS_PINS:RefreshPins(pinType)
+end
+
 local function check_map_state()
     if GetMapType() > MAPTYPE_ZONE then
         return
     end
     zoneQuests = LQD.zone_quests
-    QuestMap:RefreshPins()
+    RedrawAllPins(DPINS.QUESTS_UNDONE)
+    RedrawAllPins(DPINS.QUESTS_IN_PROGRESS)
+    RedrawAllPins(DPINS.QUESTS_DONE)
+
+    if DestinationsSV.filters[DPINS.QUESTS_DAILIES] then RedrawMapPinsOnly(DPINS.QUESTS_DAILIES) end
+    if DestinationsSV.filters[DPINS.QUESTS_WRITS] then RedrawMapPinsOnly(DPINS.QUESTS_WRITS) end
+    if DestinationsSV.filters[DPINS.QUESTS_REPEATABLES] then RedrawMapPinsOnly(DPINS.QUESTS_REPEATABLES) end
 end
 
 CALLBACK_MANAGER:RegisterCallback("OnWorldMapChanged", function()
@@ -3791,28 +3819,6 @@ local function CollectibleFishCompassPins()
       end
     end
   end
-end
-
--- Toggle filters depending on settings
-local function TogglePins(pinType, value)
-  DestinationsCSSV.filters[pinType] = value
-  LMP:SetEnabled(pinType, value)
-end
-
--- Refresh map and compass pins
-local function RedrawAllPins(pinType)
-  LMP:RefreshPins(pinType)
-  COMPASS_PINS:RefreshPins(pinType)
-end
-
--- Refresh map pins only
-local function RedrawMapPinsOnly(pinType)
-  LMP:RefreshPins(pinType)
-end
-
--- Refresh compass pins only
-local function RedrawCompassPinsOnly(pinType)
-  COMPASS_PINS:RefreshPins(pinType)
 end
 
 -- Refresh all achievement map and compass pins
