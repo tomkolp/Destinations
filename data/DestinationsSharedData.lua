@@ -3124,7 +3124,8 @@ Destinations.ACHDataStore = {
   -- The Reach, and Arkthzand Cavern are the same fishing ach
   -- The Reach
   ["reach_base_0"] = {
-    { 0.36319845914841, 0.52002114057541, 43, 2861, 1, "X" }, -- Sharlikran
+    { 0.3631984591, 0.5200211405, 43, 2861, 1, "X" }, -- Sharlikran
+    { 0.4107987284, 0.4797009229, 41, 2861, 1, "X" }, -- Sharlikran
   },
   -- Arkthzand Cavern
   ["u28_blackreach_base_0"] = {

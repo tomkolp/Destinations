@@ -251,6 +251,10 @@ local strings = {
     DEST_SETTINGS_QUEST_ALL_PIN_LAYER = "Pin layer for all Quest pins",
     DEST_SETTINGS_QUEST_COMPASS_TOGGLE = "Show Quest pins on compass",
     DEST_SETTINGS_QUEST_COMPASS_DIST = "Distance for Quest pins on compass",
+
+    DEST_SETTINGS_REGISTER_QUEST_GIVER_TOGGLE = "Hide Quest Giver Name",
+    DEST_SETTINGS_REGISTER_QUEST_GIVER_TOGGLE_TT = "Show/Hide the name of the Quest giver in the tooltip.",
+
     DEST_SETTINGS_REGISTER_QUESTS_TOGGLE = "Register Quests",
     DEST_SETTINGS_REGISTER_QUESTS_TOGGLE_TT = "Saves quest info to variables for reporting. Please see the Destinations page on ESOUI.com for more info.",
     DEST_SETTINGS_QUEST_RESET_HIDDEN = "Reset Hidden Quests",

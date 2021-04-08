@@ -40,7 +40,7 @@ Destinations.supported_lang                     = Destinations.client_lang == De
 
 local ADDON_NAME                                = "Destinations"
 local ADDON_AUTHOR                              = "Sharlikran |c990000Snowman|r|cFFFFFFDK|r & MasterLenman & Ayantir"
-local ADDON_VERSION                             = "28.0"
+local ADDON_VERSION                             = "28.1"
 local ADDON_WEBSITE                             = "http://www.esoui.com/downloads/info667-Destinations.html"
 
 local LMP                                       = LibMapPins
@@ -666,6 +666,7 @@ local defaults                                  = {
     AddEnglishOnKeeps = true,
     AddNewLineOnKeeps = true,
     HideAllianceOnKeeps = false,
+    HideQuestGiverName = false,
     ImproveCrafting = true,
     ImproveMundus = true,
     EnglishColorKeeps = STAT_BATTLE_LEVEL_COLOR:ToHex(),
@@ -3142,7 +3143,7 @@ local function Quests_Undone_pinTypeCallback(pinManager)
       local outputQuestName = zo_strformat("<<1>>", Name)
       local outputNpcName   = ""
       local outputQuestLine = ""
-      if useNpcName then
+      if useNpcName and not DestinationsCSSV.settings.HideQuestGiverName then
         outputNpcName   = zo_strformat("<<C:1>>", NPC)
         outputQuestLine = string.format("%s [%s]", outputQuestName, outputNpcName)
       else
@@ -3264,7 +3265,7 @@ local function Quests_In_Progress_pinTypeCallback(pinManager)
       local outputQuestName = zo_strformat("<<1>>", Name)
       local outputNpcName   = ""
       local outputQuestLine = ""
-      if useNpcName then
+      if useNpcName and not DestinationsCSSV.settings.HideQuestGiverName then
         outputNpcName   = zo_strformat("<<C:1>>", NPC)
         outputQuestLine = string.format("%s [%s]", outputQuestName, outputNpcName)
       else
@@ -3381,7 +3382,7 @@ local function Quests_Done_pinTypeCallback(pinManager)
       local outputQuestName = zo_strformat("<<1>>", Name)
       local outputNpcName   = ""
       local outputQuestLine = ""
-      if useNpcName then
+      if useNpcName and not DestinationsCSSV.settings.HideQuestGiverName then
         outputNpcName   = zo_strformat("<<C:1>>", NPC)
         outputQuestLine = string.format("%s [%s]", outputQuestName, outputNpcName)
       else
@@ -4200,10 +4201,18 @@ local function RegisterQuestDone(eventCode, questName, level, previousExperience
   local questFound, questID = false, 0
   local tempQuestID         = LQD:get_questids_table(questName, Destinations.effective_lang)
   local questData           = {}
-  if #tempQuestID == 1 then
-    questFound = true
-    questID    = tempQuestID[1]
+  d(questFound)
+  d(questID)
+  d(tempQuestID)
+  if tempQuestID then
+    if #tempQuestID == 1 then
+      questFound = true
+      questID    = tempQuestID[1]
+    end
   end
+  --[[TODO this need to be redone and added to the routine when you complete
+  a quest because you don't know the questID here.
+  ]]--
   if questFound then
     if drtv.getQuestInfo then
       d("Completed: " .. tostring(questID) .. " / " .. questName)
@@ -8987,6 +8996,28 @@ local function InitSettings()
         disabled = function() return not DestinationsCSSV.filters[DPINS.QUESTS_UNDONE] and not DestinationsCSSV.filters[DPINS.QUESTS_IN_PROGRESS] and not DestinationsCSSV.filters[DPINS.QUESTS_DONE] end,
         default = defaults.pins.pinTextureQuestsUndone.level
       })
+-----------
+      table.insert(submenu, { -- Global show Quest Giver in tooltip
+        type = "checkbox",
+        name = defaults.miscColorCodes.settingsTextAccountWide:Colorize(GetString(DEST_SETTINGS_REGISTER_QUEST_GIVER_TOGGLE)) .. " " .. defaults.miscColorCodes.settingsTextAccountWide:Colorize(GetString(DEST_SETTINGS_PER_CHAR)),
+        tooltip = defaults.miscColorCodes.settingsTextAccountWide:Colorize(GetString(DEST_SETTINGS_REGISTER_QUEST_GIVER_TOGGLE_TT)),
+        getFunc = function() return DestinationsCSSV.settings.HideQuestGiverName end,
+        setFunc = function(state)
+          DestinationsCSSV.settings.HideQuestGiverName = state
+          DestinationsAWSV.settings.HideQuestGiverName = state
+          -- Refresh to reflect change in tooltip
+          RedrawCompassPinsOnly(DPINS.QUESTS_UNDONE)
+          RedrawCompassPinsOnly(DPINS.QUESTS_IN_PROGRESS)
+          RedrawCompassPinsOnly(DPINS.QUESTS_DONE)
+        end,
+        disabled = function() return
+          not DestinationsCSSV.filters[DPINS.QUESTS_UNDONE] and
+          not DestinationsCSSV.filters[DPINS.QUESTS_IN_PROGRESS] and
+          not DestinationsCSSV.filters[DPINS.QUESTS_DONE]
+        end,
+        default = defaults.settings.HideQuestGiverName,
+      })
+--------------
       table.insert(submenu, { -- Header
         type = "header",
         name = defaults.miscColorCodes.settingsTextAchHeaders:Colorize(GetString(DEST_SETTINGS_QUEST_REGISTER_HEADER)),
